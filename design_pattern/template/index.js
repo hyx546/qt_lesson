@@ -22,4 +22,4 @@ Coffee.prototype.cook = function (){
     this.addSugarAndMilk();
 }
 var coffee = new Coffee();
-coffee.cook();
+coffee.cook();//

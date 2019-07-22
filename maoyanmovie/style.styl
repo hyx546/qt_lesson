@@ -1,11 +1,17 @@
 $hdbg_color = #e54847
 $font_color_block = #fff
+$bd_color=#e5e5e5
 html,body
     width 100%
 .flex
     display flex
 .flex1
     flex 1
+.section-title
+    font-size 17px
+    color #000
+.action-list.section-title
+    padding-left 0.4rem
 .nav
     height 1.067rem
     font-size 18px
@@ -147,6 +153,99 @@ html,body
                 .movie-mark
                     img
                         width 18px   
+
+
+
+    .section-seperate
+        padding-top 0.4rem
+        margin-bottom 0.3rem
+        border-top 1px solid $bd_color
+    .section-expender
+        padding-left 0.4rem
+        padding-right 0.4rem
+        .text-expander
+            &_content.close
+                min-height: 65px;
+                display -webkit-box
+                overflow hidden
+                text-overflow ellipsis // 内容超出则打点
+                word-break break-all // 自动换行
+                -webkit-box-orient vertical //
+                -webkit-line-clamp 3 // 显示的行数
+            &_button
+                height 0.7rem
+                text-align center
+                .icon-chevron_down
+                    display inline-block
+                    width 10px
+                    height 10px
+                    border 1px solid #eee
+                    border-width 0 1px 1px 0
+                    transform rotateZ(45deg)
+                    box-sizing border-box
+                    transition transform .5s
+                .icon-chevron_down.up
+                    transform rotateZ(-135deg)
+    .section-seperate
+        .movie-celebrities
+            width 100%
+            padding 0.3rem .3rem .1rem .3rem
+            overflow-x scroll
+            white-space nowrap  //不换行
+            box-sizing border-box
+            li
+                text-align center
+                display inline-block
+                padding 0.04rem
+                .link
+                    color #000000
+                    .movie-celebrities_pic
+                        width 1.7334rem
+                        height 2.4rem
+                        margin 0.05rem
+                        img
+                            width 100%
+                    span
+                        display block
+                        font-size 0.2rem
+                        text-overflow ellipsis
+                        white-space nowrap 
+                    .movie-celebrities_roles
+                        color #999999
+    .movie-booking
+        padding-bottom 0.2rem
+        .weui-flex
+            text-align center
+        .placeholder
+            span
+                font-size 24px
+                color #d96a3d
+            p
+                color #bababa
+                margin-top 0.1rem
+
+    .section-seperate
+        .movie-photo
+            width 100%
+            padding 0.3rem .3rem .1rem .3rem
+            overflow-x scroll
+            white-space nowrap  //不换行
+            box-sizing border-box
+            li
+                text-align center
+                display inline-block
+                padding 0.04rem
+                .link
+                    color #000000
+                    .movie-photo_pic
+                        width 2.5rem
+                        height 2.4rem
+                        margin 0.03rem
+                        img
+                            width 100%
+                            
+
+
 #toast
     display none
 .active

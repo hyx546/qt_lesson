@@ -124,8 +124,76 @@
         </section>
         <!-- section6 -->
         <section class="section-seperate">
-                <p class="action-list section-title">讨论</p>
+                <p class="section-title pos_r">讨论
+                    <span class="join_comment">参加讨论</span>
+                </p>
+                <ul class="movie-comment">
+                    <li class="comment-item">
+                      <div class="comment-item__sort">
+                        <span>全部</span>
+                        <span class="comment-item__num"></span>
+                      </div>
+                    </li>
+                    <li class="comment-item">
+                      <div class="comment-item__sort">
+                        <span>好评</span>
+                        <span class="comment-item__num">23323</span>
+                      </div>
+                    </li>
+                    <li class="comment-item">
+                      <div class="comment-item__sort">
+                        <span>差评</span>
+                        <span class="comment-item__num">43443</span>
+                      </div>
+                    </li>
+                    <li class="comment-item">
+                      <div class="comment-item__sort">
+                        <span>点映</span>
+                        <span class="comment-item__num">343</span>
+                      </div>
+                    </li>
+                    <li class="comment-item">
+                      <div class="comment-item__sort">
+                        <span>购票</span>
+                        <span class="comment-item__num">5454</span>
+                      </div>
+                    </li>
+                    <li class="comment-item">
+                      <div class="comment-item__sort">
+                        <span>认证作者</span>
+                        <span class="comment-item__num">54</span>
+                      </div>
+                    </li>
+                    <li class="comment-item">
+                      <div class="comment-item__sort">
+                        <span>同城</span>
+                        <span class="comment-item__num">65</span>
+                      </div>
+                    </li>
+                  </ul>
         </section>
+        <!-- section7 -->
+        <section class="section-seperate section-expander">
+            <p class="section-til">精选</p>
+            <ul class="chosen-comment" id="chosen-comment">
+              <li class="chosen-comment__item">
+                <div class="item-avatal">
+                  <img src="http://img3.duitang.com/uploads/item/201511/14/20151114125146_LXHzE.jpeg" alt="">
+                </div>
+                <div class="item-detail">
+                  <div class="item-detail__hd">
+                    <div>
+                      <span class="nick-name">额问我</span>
+                      <span class="level">
+                        <img src="" alt="">
+                      </span>
+                    </div>
+                    <p class="item-score__desc">给这部电影打了<span>10</span>分</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
         <!-- toast -->
         <div id="toast" >
                 <div class="weui-mask_transparent"></div>
@@ -134,7 +202,6 @@
                     <p class="weui-toast__content">已标记为想看</p>
                 </div>
             </div>
-        
     </div>
     <script>
       
@@ -162,6 +229,7 @@
                     $('#bookingWeek').html(res.data.booking.bookingWeek)
                     $('#bookingTotal').html(res.data.booking.bookingTotal)
                     photo(res.data.pictures)
+                   
                 }
             })
         }) ()
@@ -248,6 +316,8 @@
             )
         }
        }
+       // 讨论
+       
     </script>
 </body>
 </html>

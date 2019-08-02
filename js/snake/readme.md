@@ -15,3 +15,12 @@
     window.onload   开始我们的表演  太慢了,
     有没有比早一点发生，但是html,css 已经0了
     如果html css js 都没有基本机构的搭建完成，游戏脚本会有问题
+
+- 函数式编程
+    写代码？ 完成开发需求   复杂 <= 独立的多个子需求来完成 <= 单独封装成一个函数
+    init();
+    drawSnake();
+    addEvent();
+    refreshSnake();
+    winOrLoose();
+    showResult();

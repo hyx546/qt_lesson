@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+ul,li {
+  list-style: none;
+}
+html,
+body {
+  width: 100%;
+}
+.header_title{
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  background-color: #60605f;
+}
+.tltle_list>li{
+  float: left;
+  height: 20px;
+  text-align: center;
+  border-radius: 20px;
+  margin: 25px 80px;
+  transition: .4s;
+}
+.tltle_list li{
+  font-family: Palatino,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tltle_list li:nth-child(3){
+  float: right !important;
+}
+.tltle_list li:nth-child(4){
+  float: right ;
+}
+.items:hover{
+  color: aquamarine;
+}
+.tltle_list ul{
+  display: none;
+  margin-top: 10px;
+}  /* 先使二级菜单的内容隐藏 */
+.tltle_list>li:hover ul{
+  cursor: pointer;
+  display: block;
+  background-color: #fff;
+  opacity: .8;
+}   /* 鼠标滑过一级菜单后的显示二级菜单 */
+.tltle_list>li:hover ul li{
+  padding: 8px 20px ;
+  cursor: pointer;
+  text-align: left;
+  transition: .4s;
+  color: #eee;
+}

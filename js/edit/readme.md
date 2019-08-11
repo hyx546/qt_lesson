@@ -16,4 +16,18 @@
     })
 - 函数内部的this是执行时动态决定的，执行的方式来决定的
     this.converToText();    //函数是作为对象的方法被调用    this指向对象
-    
+
+- EditorInPlace     类，constructor + prototype (原型对象 Object)
+new EditorInPlace() 对象    new 发生了什么
+function    EditorInPlace(){
+
+}函数首字母大写 构造器
+EditorInPlace.prototype = {
+    converToText:function(){}
+        ....
+}
+
+- this 用法
+- 代码的组织    attachEvents
+-  状态的方法
+- 原生JS

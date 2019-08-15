@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // S 60*salary
+        // A 6*salary
+        // B 4*salary
+        // C 2*salary
+        // D 1*salary
+        // 奖金的发放策略
+        var performanceSBonus=function(salary){
+            return salary * 100;
+        }
+        var performanceABonus=function(salary){
+            return salary * 6;
+        }
+        var performanceBBonus=function(salary){
+            return salary * 4;
+        }
+        var performanceCBonus=function(salary){
+            return salary * 2;
+        }
+        var performanceDBonus=function(salary){
+            return salary * 1;
+        }
+
+
+        var caulateBonus = function(performanceLevel,salary){
+            switch(performanceLevel){
+                case 'S': return performanceSBonus(salary); break;
+                case 'A': return performanceABonus(salary);break;
+                case 'B':return performanceBBonus(salary);break;
+                case 'C': return performanceCBonus(salary);break;
+                case 'D': return performanceDBonus(salary);break;
+                default: return 0;
+            }
+        }
+    console.log(caulateBonus('S',30000));
+    </script>
+</body>
+</html>

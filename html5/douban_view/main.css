@@ -1,0 +1,152 @@
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
+    margin: 0;
+    padding: 0;
+}
+a:visited{
+    color: #669;
+    text-decoration: none;
+}
+a:link{
+    color: #37a;
+    text-decoration: none;
+}
+a{
+    cursor: pointer;
+}
+
+ul,ol{
+    list-style: none;
+}
+html{
+    color: #111111;
+    background-color: white;
+}
+body{
+    padding: 30px;
+}
+body,td,th{
+    font: 12px Helvetica,Arial,sans-serif;
+    line-height: 1.62;/*行高*/
+}
+#anony-nav{
+    width: 950px;
+    margin: 0 auto 25px;
+
+}
+#anony-nav .anony-nav-links{
+    float: right;
+    margin-top: 6px;
+}
+#anony-nav .anony-nav-links li{
+    display: inline-block;
+    *display: inline;
+    zoom: 1;/*设置或检索对象的缩放比例*/
+    margin: 0 0 0 17px;;
+}
+#anony-nav .anony-nav-links li a{
+    display: inline-block;
+    zoom: 1;
+    width: 40px;
+    height: 20px;
+    overflow: hidden;/* 超出则隐藏 */
+    margin: 0;
+    line-height: 20em;
+    outline: none;/*轮廓  */
+    vertical-align: middle;
+    background:transparent url(https://img3.doubanio.com/f/sns/8536084688879cb1137e8efdff30e59614ff2f86/pics/sns/anony_home/anony_nav_logo.png) no-repeat 100% 100%;
+}
+#anony-nav .anony-nav-links li .lnk-book{
+    background-position: 0 0;
+}
+#anony-nav .anony-nav-links li .lnk-movie{
+    background-position: -60px 0;
+}
+#anony-nav .anony-nav-links li .lnk-musci{
+    background-position: -120px 0;
+}
+#anony-nav .anony-nav-links li .lnk-group{
+    background-position: -180px 0;
+}
+#anony-nav .anony-nav-links li .lnk-events{
+    background-position: -299px 0;
+}
+#anony-nav .anony-nav-links li .lnk-fm{
+    background-position: -241px 0;
+}
+#anony-nav .anony-nav-links li .lnk-shijian{
+    margin-bottom: 1px;
+    background-size: over;
+    background:transparent url(https://img3.doubanio.com/f/sns/b474dd402e4293943146a4789de3dae88ec96636/pics/sns/anony_home/ic_shijian_home_nav.png) no-repeat 100% 100%;
+    
+}
+#anony-nav .anony-nav-links li .lnk-market{
+    width: 42px;
+    background-position: -421px 0;;
+}
+#annoy-nav h1 {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    width: 160px;
+    height: 34px;
+    margin: 0 20px 0 0 ;
+    padding: 0;
+    font-size: 12px;
+    font-weight: normal;
+    background: url(https://img3.doubanio.com/f/sns/19886d443852bee48de2ed91f4a3bdfdaf8c809c/pics/nav/logo_db.png) no-repeat 0 0;
+    overflow: hidden;
+}
+#annoy-nav h1 a{
+    display: block;
+    height: 34px;
+    line-height: 10em;
+}
+#annoy-nav .anony-srh{
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    width: 270px;
+    height: 30px;
+    border: 1px solid #c3c3c3;
+}
+form{
+    margin: 0;
+    padding: 0;
+    bottom: 0px;
+}
+#annoy-nav .anony-srh .inp{
+    display: block;
+    height: 30px;
+    overflow: hidden;
+}
+#annoy-nav .anony-srh .inp input{
+    width: 240px;
+    border: none;
+    font-size: 13px;
+    height: 20px;
+    padding: 5px;
+}
+#annoy-nav .anony-srh .bn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    background: url(https://img3.doubanio.com/f/sns/f71f15922ebd7c0ff0ea0e7a25577529efd8981a/pics/icon/bn_srh_1.png) 50% 50% no-repeat;
+}
+#annoy-nav .anony-srh .bn input{
+    border: none;
+    background: transparent;
+    *padding-left: 30px;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    color: transparent;
+    cursor: pointer;
+}

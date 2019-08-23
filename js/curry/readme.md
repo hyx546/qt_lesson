@@ -16,3 +16,4 @@ checkCellPhone('13456456789');
 
 - 分函数收集参数的过程
     return function(){} 闭包 fn.length fn 闭包
+- require + module.exports es5 模块化方案

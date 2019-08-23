@@ -26,3 +26,5 @@ let _fn = curry(function(a,b,c,d,e) {
 })
 // _fn(1)(2)(3)(4)(5)
 _fn(1)(2);
+//commonjs 模块化机制 curry能力
+module.exports = curry;

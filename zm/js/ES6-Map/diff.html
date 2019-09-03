@@ -14,7 +14,7 @@
         var box = document.getElementById('box');
         var box1 = document.getElementById('box1');
         var es5Map = {
-            b:1,a:2,'1':1,[box]:'box'
+            b:1,a:2,'1':1,[box]:'box',[box1]:'box1',b:2
         }
         console.log(es5Map[box] === 'box')
         Object.keys(es5Map).forEach(key=>{

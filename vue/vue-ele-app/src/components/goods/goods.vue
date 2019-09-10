@@ -13,7 +13,7 @@
     </div>
     <div class="foods-wrapper" ref="foodsWrapper">
       <ul>
-        <li v-for="(item, index) in goods" :key="index" class="food-list">
+        <li v-for="(item, index) in goods" :key="index" class="food-list" ref="foodList">
           <h1 class="title">{{item.name}}</h1>
           <ul>
             <li v-for="(food, index) in item.foods" :key="index" class="food-item border-1px">
@@ -31,7 +31,9 @@
                   <div class="now">¥{{food.price}}</div>
                   <div class="old" v-show="food.oldPrice">¥{{food.oldPrice}}</div>
                 </div>
-                <div class="cartcontrol-wrapper">+</div>
+                <div class="cartcontrol-wrapper">
+                  <cartcontrol></cartcontrol>
+                </div>
               </div>
             </li>
           </ul>
@@ -43,25 +45,44 @@
 </template>
 <script>
 import BScroll from 'better-scroll'
+import cartcontrol from '@/components/cartcontrol/cartcontrol'
 export default {
   data () {
     return {
       goods: [],
       classMap: [],
-      currentIndex: 0
+      // currentIndex: 0,
+      listHeight: [],
+      scrollY: 0
     }
+  },
+  components: {
+    cartcontrol
   },
   created () {
     this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
     this.$http.get('http://localhost:8080/static/goods.json', {}).then(res => {
-      console.log(res)
+      // console.log(res)
       if (res.data.errno === 0) {
         this.goods = res.data.data
         this.$nextTick(() => { // 页面渲染完成才会执行
           this._initScroll()
+          this._calculateHeight()
         })
       }
     })
+  },
+  computed: {
+    currentIndex () {
+      for (let i = 0; i < this.listHeight.length; i++) {
+        let height1 = this.listHeight[i]
+        let height2 = this.listHeight[i + 1]
+        if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
+          return i
+        }
+      }
+      return 0
+    }
   },
   methods: {
     _initScroll () {
@@ -69,12 +90,30 @@ export default {
         click: true
       })
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
-        click: true
+        click: true,
+        probeType: 3
+      })
+      this.foodsScroll.on('scroll', pos => {
+        // console.log(pos)
+        this.scrollY = Math.abs(Math.round(pos.y))
       })
     },
     selectMenu (index, event) {
-      console.log(event)
-      this.currentIndex = index
+      // console.log(event)
+      // this.currentIndex = index
+      let foodList = this.$refs.foodList
+      let el = foodList[index]
+      this.foodsScroll.scrollToElement(el, 300)
+    },
+    _calculateHeight () {
+      let foodList = this.$refs.foodList
+      let height = 0
+      this.listHeight.push(height)
+      for (let i = 0; i < foodList.length; i++) {
+        let item = foodList[i]
+        height += item.clientHeight
+        this.listHeight.push(height)
+      }
     }
   }
 }

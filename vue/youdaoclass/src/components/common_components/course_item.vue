@@ -1,31 +1,9 @@
 <template>
   <div class="contaier sixth">
     <div class="course_item_list">
-      <a href=""><img :src="course_item_img" alt=""></a>
-      <course class=" p1" classify="四六级" course_title="有道考神 新四级全程班·4班 （开课倒计时1天！）" course_time="时间：2019.10.17 21:00" course_hour="106.5课时"
-        course_item_img="https://oimageb7.ydstatic.com/image?id=-2161111586253547147&product=bisheng"
-        course_item_name="曲根" course_buy="已有1795购买" course_cost="¥199"></course>
-
-      <course class=" p2" classify="四六级" course_title="有道考神 新六级全程班·4班 （开课倒计时1天！）" course_time="时间：2019.10.17 21:00" course_hour="106.5课时"
-        course_item_img="https://oimageb7.ydstatic.com/image?id=-2161111586253547147&product=bisheng"
-        course_item_name="曲根" course_buy="已有1099购买" course_cost="¥199"></course>
-    </div>
-    <div class="course_item_list">
-      <course class="" classify="四六级" course_title="有道考神 新四级全程班·4班 （开课倒计时1天！）" course_time="时间：2019.10.17 21:00" course_hour="106.5课时"
-        course_item_img="https://oimageb7.ydstatic.com/image?id=-2161111586253547147&product=bisheng"
-        course_item_name="曲根" course_buy="已有1795购买" course_cost="¥199"></course>
-      
-      <course class="" classify="四六级" course_title="有道考神 新四级全程班·4班 （开课倒计时1天！）" course_time="时间：2019.10.17 21:00" course_hour="106.5课时"
-        course_item_img="https://oimageb7.ydstatic.com/image?id=-2161111586253547147&product=bisheng"
-        course_item_name="曲根" course_buy="已有1795购买" course_cost="¥199"></course>
-
-      <course class="" classify="四六级" course_title="有道考神 新四级全程班·4班 （开课倒计时1天！）" course_time="时间：2019.10.17 21:00" course_hour="106.5课时"
-        course_item_img="https://oimageb7.ydstatic.com/image?id=-2161111586253547147&product=bisheng"
-        course_item_name="曲根" course_buy="已有1795购买" course_cost="¥199"></course>
-
-      <course class="" classify="四六级" course_title="有道考神 新四级全程班·4班 （开课倒计时1天！）" course_time="时间：2019.10.17 21:00" course_hour="106.5课时"
-        course_item_img="https://oimageb7.ydstatic.com/image?id=-2161111586253547147&product=bisheng"
-        course_item_name="曲根" course_buy="已有1795购买" course_cost="¥199"></course>
+      <a href=""><img :src="course_item_img.head_img" alt=""></a>
+      <course v-for="(item ,index) in course_item_img.courses" :key="index" :hot_Course="item" 
+      :class="{'active':index<=0}"></course>
     </div>
   </div>
 </template>
@@ -42,22 +20,39 @@ export default {
 }
 </script>
 
-<style >
+<style scoped>
 .course_item_list{
   display: flex;
-
+  flex-wrap: wrap;
 }
 .course_item_list>a{
   display: inline-block;
-  width: 580px;
+  width: 565px;
   height: 272px;
   border-radius: 4px;
+  margin-left: -8px;
+  margin-right: 3px;
 }
+.course_item_list >.course{
+  width: 271px;
+  height: 262px;
+  margin: 10px;
+  margin-left: -5px;
+  flex: 1;
+}
+/* .course_item_list >.course.active{
+  margin-left: 10px;
+  padding-left: 5px;
+  width: 260px;
+  height: 262px;
+  z-index: 1000;
+} */
 .course_item_list>a>img{
   width: 100%;
   height: 100%;
   border-radius: 4px;
 }
+
 .course_item_list>a:hover>img{
   transform: translate(0, -10px);
   box-shadow: 10px 10px 5px #eaeaea;

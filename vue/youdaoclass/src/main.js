@@ -7,7 +7,10 @@ import router from './router'
 import $ from 'jquery'
 import 'bootstrap3/dist/css/bootstrap.min.css';
 import 'bootstrap3/dist/js/bootstrap.min.js';
+import '../mock/index'
+// import VueResource from 'vue-resource'
 
+// Vue.use(VueResource)
 Vue.config.productionTip = false
 Vue.use(Vuex)
 /* eslint-disable no-new */

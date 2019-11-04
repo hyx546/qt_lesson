@@ -1,8 +1,8 @@
 <template>
 <div>
   <div class="download_content">
-    <a href="#" class="ios"></a>
-    <a href="#" class="android"></a>
+    <a href="http://c.youdao.com/dict/download.html?app=course&platform=iphone&title=有道精品课-为你精选好课" class="ios"></a>
+    <a href="http://c.youdao.com/dict/download.html?app=course&platform=android&title=有道精品课-为你精选好课" class="android"></a>
     <div  class="scan">
       <div class="erweima"></div>
     </div>

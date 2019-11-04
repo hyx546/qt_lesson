@@ -1,9 +1,9 @@
 <template>
   <div class="container forth">
     <div class="tab">
-      <img :src="tab_img" alt="">
-      <h4>{{tab_title}}</h4>
-      <span>{{tab_detail}}</span>
+      <img :src="discoverList.image" alt="">
+      <h4>{{discoverList.title}}</h4>
+      <span>查看详情</span>
     </div>
   </div>
 </template>
@@ -16,9 +16,7 @@ export default {
     }
   },
   props: [
-    'tab_img',
-    'tab_title',
-    'tab_detail',
+    'discoverList'
   ]
 }
 </script>

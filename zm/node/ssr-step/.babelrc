@@ -1,0 +1,11 @@
+{
+  "presets": [
+    // 兼容最新的两个版本
+    "@babel/preset-react",
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }]
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "root",
+    "password": "12345678",
+    "database": "meishi_development",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "timezone": "+08:00"
+  },
+  "test": {
+    "username": "root",
+    "password": "12345678",
+    "database": "meishi_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": "12345678",
+    "database": "meishi_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}

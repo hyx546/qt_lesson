@@ -44,5 +44,29 @@ const clone = parent => {
       child = new RegExp(parent.source,getRegExp(parent))
       if (parent.lastIndex) child.lastIndex = parent.lastIndex
     }
+    else if (isType(parent, 'Date')) {
+      child = new Date(parent.getTime())
+    }
+    else {
+      proto = Object.getPrototypeOf(parent)
+      child = Object.create(proto)
+
+    }
+    // 处理循环引用
+    const index = parent.indexOf(parent)
+    if (index != -1) {
+      return children[index]
+    }
+
+    parents.push(parent)
+    children.push(child)
+
+
+    for (let i in parent) {
+      // 递归
+      child[i] = _clone(parent[i])
+    }
+    return child;
   }
+  return _clone(parent)
 }

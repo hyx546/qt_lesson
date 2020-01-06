@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <p>合法页面的操作</p>
+    <button>转账</button>
+    <a href="http://localhost:8080/count">查看余额</a>
+    <p>hack 操作</p>
+  </div>
+  <script>
+    //  session 表
+    // [{sessionID:1, uid: 100, login: true}]
+    document.cookie = 'login=true; samesite =strict'
+    // 只会 a.com（合法） 提交， b.com（不合法） 不回提交
+    // document.cookie = 'sessionID=1'
+  </script>
+</body>
+</html>

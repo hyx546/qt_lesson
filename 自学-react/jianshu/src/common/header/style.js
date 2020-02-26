@@ -2,13 +2,12 @@ import styled from 'styled-components'
 import logoPic from '../../static/logo.png'
 
 export const HeaderWrapper = styled.div `
+  z-index: 1;
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
   position: relative;
 `
-export const Logo = styled.a.attrs({
-  href: '/'
-}) `
+export const Logo = styled.div `
   position: absolute;
   height: 56px;
   top: 0;
@@ -95,6 +94,54 @@ export const NavSearch = styled.input.attrs({
     width: 160px;
     
   }
+`
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 56px;
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+  background-color: #fff;
+`
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+`
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
+  position: relative;
+  .spin {
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-right: 2px;
+    position: absolute;
+    left: -22px;
+    top: -4px;
+    transition: all .2s ease-in;
+    /* transform: rotate(0deg); */
+    transform-origin: center center;
+  }
+`
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 3px;
 `
 export const Addition = styled.div`
   position: absolute;

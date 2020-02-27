@@ -1,0 +1,106 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  color: #ffffff;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid rgb(95, 92, 92);
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+header{
+  height: 130px;
+  text-align: center;
+  overflow: hidden;
+  background-color: rgb(211, 115, 25);
+}
+header i{
+  float: left;
+  width: 220px;
+  background-color: #fff;
+  color: rgb(211, 115, 25);
+  transform:rotate(-45deg);
+  margin-top: 60px;
+  margin-left: -35px;
+  font-weight: bold;
+}
+header h1{
+  display: inline-block;
+  font-size: 80px;
+  text-align: center;
+  margin-right: 180px;
+}
+.content{
+  background-color: rgb(110, 106, 106) ;
+  height: 200px;
+  overflow: hidden;
+}
+.content nav{
+  width: 25%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+}
+.content nav h4{
+  margin: 5px;
+}
+.content nav li{
+  border-bottom: 2px solid #ffffff;
+  padding: 10px;
+  text-align-last: left;
+}
+.content nav li a{
+  color: rgb(211, 115, 25);
+  font-weight: 500;
+}
+.content section{
+  display: inline-block;
+  width: 40%;
+  background-color: rgb(194, 190, 190);
+  border-radius: 8px;
+  transform: rotate(-10deg);
+  margin-left: 20px;
+  text-align: center;
+  padding: 7px;
+}
+.content section .title{
+  width: 95%;
+  margin: 10px 0px 5px 5px;
+  background-color: rgb(211, 115, 25);
+  border-radius: 8px;
+}
+.content section article{
+  color: #000;
+  margin: 10px 0px 5px 8px;
+  text-align-last: left;
+}
+.content section .footer{
+  background-color: rgb(211, 115, 25);
+  border-radius: 8px;
+  width: 95%;
+  margin: 10px 0px 5px 5px;
+}
+.content aside {
+  display: inline-block;
+  width: 20%;
+  padding: 13px;
+  margin-left: 50px;
+ 
+}
+.content aside h4{
+  text-align: center;
+  margin-bottom: 15px;
+}
+footer{
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(211, 115, 25);
+}

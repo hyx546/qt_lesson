@@ -6,7 +6,7 @@ const defaultState = fromJS({
   content: []
 })
 
-export default (state=defaultState,action) => {
+export default (state = defaultState,action) => {
   switch(action.type) {
     case constants.CHANGE_DETAIL:
       return state.merge({

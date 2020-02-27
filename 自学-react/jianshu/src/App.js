@@ -6,8 +6,9 @@ import store from './store';
 import { BrowserRouter, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Home from './page/home';
-import Detail from './page/detail';
+import Detail from './page/detail/loadable.js';
 import Login from './page/login';
+import Write from './page/write';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/' exact component={Home}></Route>
             <Route path='/login' exact component={Login}></Route>
             <Route path='/detail/:id' exact component={Detail}></Route>
+            <Route path='/write' exact component={Write}></Route>
           </div>
         </BrowserRouter>
       </Provider>

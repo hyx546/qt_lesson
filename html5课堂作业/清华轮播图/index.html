@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>轮播图</title>
+</head>
+<body>
+  <div class="content">
+    <!-- 轮播图 -->
+    <div class="carousel">
+      <ul class="carouselItems">
+        <li class="carouselItem active"><img src="./img/背景1.jpg" alt=""><h3>习近平考察调研清华大学新冠肺炎防控科研攻关工作</h3></li>
+        <li class="carouselItem "><img src="./img/背景2.jpg" alt=""><h3>重大突破！清华团队准确定位新冠病毒和受体相互作用位点</h3></li>
+        <li class="carouselItem "><img src="./img/背景3.jpg" alt=""><h3>战“疫”利器问世！清华新型核酸检测芯片试剂盒驰援武汉</h3></li>
+        <li class="carouselItem "><img src="./img/背景4.jpg" alt=""><h3>iTsinghua云学堂暨清华大学2020高招直播启动</h3></li>
+        <li class="carouselItem "><img src="./img/背景5.jpg" alt=""><h3>惊蛰节气：春雷响，万物长</h3></li>
+      </ul>
+    </div>
+    <!-- 数字按钮 -->
+    <div class="dots">
+      <li class="dot active" data-index='0'>01</li>
+      <li class="dot" data-index='1'>02</li>
+      <li class="dot" data-index='2'>03</li>
+      <li class="dot" data-index='3'>04</li>
+      <li class="dot" data-index='4'>05</li>
+    </div>
+    <!-- 按钮 -->
+    <div class="pre" id="left"><i class="left" ></i></div>
+    <div class="next" id="right"><i class="right" ></i></div>
+  </div>
+  <script>
+    var pre = document.getElementById('left');
+var next = document.getElementById('right');
+var items=document.getElementsByClassName('carouselItem');
+var dots=document.getElementsByClassName('dot');
+var content = document.getElementsByClassName("content")[0];
+
+var index =0 ;
+var clearActive = function() {
+  for(var i=0;i<items.length;i++){
+    items[i].className='carouselItem'
+  }
+  for(var i=0;i<dots.length;i++){
+    dots[i].className='dot';
+  }
+}
+
+var goIndex =function() {
+  clearActive();
+  items[index].className = 'carouselItem active';
+  dots[index].className= 'dot active';
+}
+
+var goPre = function() {
+  if(index==0){
+    index=4; 
+  }
+  else{
+    index--;
+  }
+  goIndex();
+}
+
+var goNext = function(){
+  if(index <4){
+   index ++; 
+  }
+  else{
+    index=0;
+  }
+  goIndex();
+}
+setTimeout(next.addEventListener('click',function(){
+  goNext();
+}), 2000);
+
+pre.addEventListener('click',function(){
+  goPre();
+})
+
+for(var i=0;i<dots.length;i++){
+  dots[i].addEventListener('click',function(){
+    var pointIndex= this.getAttribute('data-index');
+    index=pointIndex;
+    goIndex();
+  })
+}
+
+//100ms跳转一次
+var time = setInterval(function(){
+			 goNext();
+		 },100)
+content.onmousemove=function(){
+  clearInterval(time)
+}
+content.onmouseout=function(){
+  time=setInterval(goNext,100)
+}
+
+
+  </script>
+</body>
+</html>

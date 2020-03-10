@@ -1,0 +1,16 @@
+{
+  "name": "bable-plugin",
+  "version": "1.0.0",
+  "description": "源代码 -> 解析 -> AST -> 增删查改 -> AST",
+  "main": "index.js",
+  "scripts": {
+    "complie" : "babel src --out-dir dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7"
+  }
+}

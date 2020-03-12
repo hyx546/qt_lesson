@@ -1,11 +1,14 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav"><div slot="center">购物街</div></nav-bar>
-    <home-swiper :banners="banners"></home-swiper>
-    <recommend-view :recommends="recommends"></recommend-view>
-    <feature-view/>
-    <tab-control class="tab-control" :titles="['流行','新款','精选']" @tabClick="tabClick"></tab-control>
-    <good-list :goods="showGoods"/>
+    <scroll class="content" ref="scroll" :probe-type="3" @scroll="contentScroll">
+        <home-swiper :banners="banners"></home-swiper>
+        <recommend-view :recommends="recommends"></recommend-view>
+        <feature-view/>
+        <tab-control class="tab-control" :titles="['流行','新款','精选']" @tabClick="tabClick"></tab-control>
+        <good-list :goods="showGoods"/>
+    </scroll>
+    <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
@@ -13,7 +16,8 @@
 import NavBar from 'components/common/navbar/NavBar';
 import TabControl from 'components/content/tabControl/TabControl';
 import GoodList from 'components/content/goods/GoodsList'
-
+import Scroll from 'components/common/scroll/Scroll'
+import BackTop from 'components/content/backTop/BackTop'
 
 import HomeSwiper from './childComps/HomeSwiper';
 import RecommendView from './childComps/RecommendView';
@@ -34,13 +38,16 @@ export default {
         'new': {page:0, list:[]},
         'sell': {page:0, list:[]},
       },
-      currentType: 'pop'
+      currentType: 'pop',
+      isShowBackTop: false
     }
   },
   components:{
     NavBar,
     TabControl,
     GoodList,
+    Scroll,
+    BackTop,
     
     HomeSwiper,
     RecommendView,
@@ -77,7 +84,12 @@ export default {
           break;
       }
     },
-
+    backClick() {
+      this.$refs.scroll.scrollTo(0,0,500)//500ms回到顶部
+    },
+    contentScroll(position) {
+      this.isShowBackTop = (- position.y) > 1000 ? true : false;
+    },
 
     /**
      * 网络请求相关的方法
@@ -105,7 +117,8 @@ export default {
 
 <style scoped>
 #home{
-  padding-top: 44px;
+  /* padding-top: 44px; */
+  height: 100vh;
 }
 .home-nav{
   background-color: var(--color-tint);
@@ -120,5 +133,18 @@ export default {
 .tab-control{
   position: sticky;
   top: 44px;
+}
+/* .content{
+  overflow: hidden;
+  position: absolute;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+} */
+
+.content{
+  height: calc(100% - 93px);
+  overflow: hidden;
+  margin-top: 44px;
 }
 </style>

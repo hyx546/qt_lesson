@@ -18,6 +18,7 @@
   
   <div class="wrapper">
     <ul class="content">
+      <button class="btn">按钮</button>
       <li>列表数据1</li>
       <li>列表数据2</li>
       <li>列表数据3</li>
@@ -122,8 +123,33 @@
   </div>
   <script src="./bscroll.js"></script>
   <script>
-   const bscroll = new BScroll(document.querySelector('.wrapper'), {
-     
+    //  默认情况下BScroll是不可也实时监听滚动位置
+    // probe 侦测 
+    // 0 1 都是不侦测实时的位置
+    // 2: 在手指滚动的过程中侦测，手指离开后就惯性滚动过程中不侦测
+    // 3.只要是滚动，都侦测
+   const bscroll = new BScroll(document.querySelector('.wrapper'),{
+    probeType: 2,
+    click:true,
+    pullUpLoad:true
+   })
+
+   bscroll.on('scroll', (position) => {
+    //  console.log(position)
+    // positon 获取位置
+   })
+   bscroll.on('pullingUp',() => {
+    console.log('上啦加载更多')
+    // 发送网络请求，请求更多页的数据
+
+    // 等数据请求完成，并且将新的数据展示出来后
+    setTimeout(() => {
+      bscroll.finishPullUp()//调用该函数之后，才能进行上啦加载更多
+    },2000)
+
+   })
+   document.querySelector('.btn').addEventListener('click', function() {
+     console.log('-------')
    })
   </script>
 </body>

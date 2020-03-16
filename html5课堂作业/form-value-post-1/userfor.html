@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body onload="kk()">
+		你的用户名是：
+		<span id="user">
+
+		</span>
+		<br />你的密码是：
+		<span id="password">
+
+		</span>
+		<script type="text/javascript">
+			var url = decodeURI(location.href);
+			var getval = url.split('?')[1];
+			alert(getval);
+			//			var parm=new Array();
+			//			for(var i=0;i<=1;i++){
+			var user = document.getElementById("user");
+			var password = document.getElementById("password");
+			//			}
+			function kk() {
+				user.innerHTML = getval.split('&')[0].split('=')[1];
+				password.innerHTML = getval.split('&')[1].split('=')[1];
+			}
+		</script>
+	</body>
+
+</html>

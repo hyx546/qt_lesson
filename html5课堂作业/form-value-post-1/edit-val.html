@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: content-box;
+			}
+			body{
+				background-color: #000;
+			}
+			
+			.box {
+				border: 1px solid white;
+				position: absolute;
+				top: 60%;
+				left: 50%;
+				width: 80%;
+				transform: translate(-50%, -50%);
+			}
+			
+			ul {
+				display: block;
+				list-style: none;
+				margin-left: 10px;
+				color: white;
+				margin-top: 30px;
+			}
+			
+			ul li {
+				height: 30px;
+				margin: 0 auto;
+				text-align: center;
+				font-size: 20px;
+			}
+			
+			ul li input {
+				height: 26px;
+			}
+			
+			ul li:last-child {
+				margin-bottom: 30px;
+			}
+			
+			#sub {
+				width: 200px;
+				height: 40px;
+			}
+			
+			#namewarn,
+			#pwdwarn {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>	
+		<div class="box">
+			<form id="myform" method="post">
+				<ul>
+					<li>
+						<label for="username">
+						账号:
+					</label>
+						<input type="text" name="username" id="username" placeholder="用户名要求4-12位" form="myform" />
+					</li>
+					<li id="namewarn"></li>
+					<li>
+						<label for="password">
+						密码:
+					</label>
+						<input type="password" name="password" id="password" placeholder="密码为6位" form="myform" />
+					</li>
+					<li id="pwdwarn"></li>
+					<li>
+						<span>（测试账号：admin  密码：123456）</span>
+					</li>
+					<li></li>
+					<li>
+						<input type="button" name="" id="sub" value="登录" />
+					</li>
+				</ul>
+			</form>
+		</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	function $(str) {
+		return document.querySelector(str);
+	}
+	
+	var username = $("#username");
+	var password = $("#password");
+	var namewarn = $("#namewarn");
+	var pwdwarn = $("#pwdwarn");
+	var myform = $("#myform");
+	
+	var p = /[0-9]/;
+	username.oninput = function() {
+		if(this.value.length < 4 || this.value.length > 12) {
+			namewarn.innerText = "请输入4-12位的用户名"
+		} else if(p.test(this.value)) {
+			namewarn.innerText = "用户名只能由字母组成"
+
+		} else {
+			namewarn.innerText = ""
+		}
+	}
+
+	password.oninput = function() {
+		if(this.value.length != 6) {
+			pwdwarn.innerText = "密码必须为6位"
+		} else {
+			pwdwarn.innerText = ""
+		}
+	}
+
+	$("#sub").onclick = function() {
+		// this.preventDefault;
+		if(namewarn.innerText != "" || pwdwarn.innerText != "" || username.value == "" || password.value == "") {
+			alert("请按要求输入用户名和密码")
+		} else if(username.value != "admin" || password.value != "123456") {
+			alert("用户名或密码错误")
+		} else {
+			send();
+		}
+	}
+
+	function send() {
+		var username = $("#username").value;
+		var password = $("#password").value;
+		var url = "userfor.html" + "?" + "username=" + encodeURI(username) + "&password=" + encodeURI(password);
+		window.location.href = url;
+		//		
+	}
+</script> 

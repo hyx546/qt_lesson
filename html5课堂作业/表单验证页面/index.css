@@ -1,0 +1,82 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+  color: #aaa;
+}
+.form-validator{
+  width: 100%;
+  height: 100vh;
+}
+.header{
+  height: 7vh;
+  border: 1px solid #ccc;
+  border-right:none;
+  border-left: none;
+  box-shadow: 1px 1px 1px #ccc;
+  text-align: center;
+}
+.header-logo{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-left: 2px solid #aaa;
+  border-bottom: 2px solid #aaa;
+  transform: rotate(45deg);
+  margin-left: -12px;
+}
+.header-title{
+  width: 80%;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 7px;
+  font-weight: 440;
+
+}
+.content{
+  width: 100%;
+  height: 92.5vh;
+  background-color: #eee;
+}
+.image{
+  text-align: center;
+}
+.formList{
+  width: 100%;
+  text-align: center;
+  margin-top: 2vh;
+}
+.username,.password{
+  width: 80%;
+  padding: 16px;
+  border: 1px solid #ccc;
+}
+.password{
+  margin-top: 10px;
+}
+.btn{
+  width: 90%;
+  border: 1px solid #000;
+  background-color: rgb(28, 28, 245);
+  border-radius: 2px;
+  padding: 8px 0;
+  margin-top: 6vh;
+  color: #eee;
+  font-size: 20px;
+}
+.bottom{
+  position: fixed;
+  bottom: 5vh;
+  height: 30px;
+  margin-top: 25px;
+  width: 90%;
+  margin-left: 15px;
+}
+.bottom-left{
+  float: left;
+}
+.bottom-right{
+  float: right;
+}

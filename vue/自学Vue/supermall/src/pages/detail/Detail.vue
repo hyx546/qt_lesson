@@ -1,27 +1,38 @@
 <template>
   <div id="detail">
-    <detail-nav-bar/>
-    <detail-swiper :top-images="topImages" />
+    <detail-nav-bar class="detail-nav"/>
+      <detail-swiper :top-images="topImages" />
+      <detail-base-info  :goods="goods"/>
+      <detail-shop-info :shop="shop"></detail-shop-info>
   </div>
 </template>
 
 <script>
 import DetailNavBar from './childComps/DetailNavBar';
 import DetailSwiper from './childComps/DetailSwiper';
+import DetailBaseInfo from './childComps/DetailBaseInfo';
+import DetailShopInfo from './childComps/DetailShopInfo';
 
-import {getDetail,Goods} from 'network/detail';
+import Scroll from 'components/common/scroll/Scroll';
+
+import {getDetail,Goods,Shop} from 'network/detail';
 
 export default {
   name: "Detail",
   components:{
     DetailNavBar,
-    DetailSwiper
+    DetailSwiper,
+    DetailBaseInfo,
+    DetailShopInfo,
+
+    Scroll
   },
   data() {
     return {
       iid: null,
       topImages: [],
-      goods: null
+      goods: {},
+      shop: {}
     }
   },
   created() {
@@ -36,8 +47,9 @@ export default {
 
       // 2.获取商品
       this.goods = new Goods(data.itemInfo, data.columns, data.shopInfo.services)
-      
 
+      // 3.创建店铺信息
+      this.shop = new Shop(data.shopInfo)
     })
   }
 
@@ -45,6 +57,18 @@ export default {
 </script>
 
 <style scpoed>
-
-
+#detail{
+  /* height: 100vh; */
+  position: relative;
+  z-index:9 ;
+  background-color: #fff;
+}
+.detail-nav {
+  position: relative;
+  z-index: 9;
+  background-color: #fff;
+}
+.content{
+  height: calc(100vh - 44px);
+}
 </style>

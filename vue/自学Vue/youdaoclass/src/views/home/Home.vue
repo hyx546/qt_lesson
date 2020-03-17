@@ -1,0 +1,59 @@
+<template>
+  <div class="home">
+    <listBar></listBar>
+    <home-swiper class="home-swiper" :banners="banners" ></home-swiper>
+    <hot-course :popularCourse="popularCourse"></hot-course>
+    <find-course :discover="discover"></find-course>
+  </div>
+</template>
+
+<script>
+import listBar from 'views/home/childComp/listBar.vue';
+
+import HomeSwiper from './childComp/HomeSwiper';
+import HotCourse from './childComp/HotCourses';
+import FindCourse from './childComp/FindCourse';
+
+import {getHomeData} from 'network/home.js';
+
+export default {
+  name: 'Home',
+  data() {
+    return {
+      data: null,
+      tagRecommends: [],
+      banners: [],
+      popularCourse: [],
+      discover:[]
+    }
+  },
+  components: {
+    listBar,
+    HomeSwiper,
+    HotCourse,
+    FindCourse
+  },
+  created() {
+    //1.请求全部数据
+    getHomeData().then(res => { 
+      console.log(res)
+      this.data = res.data;
+      this.tagRecommends = this.data.tagRecommends;
+      this.banners = this.data.head;
+      this.popularCourse = this.data.popularCourse;
+      this.discover = this.data.discover;
+    })
+  },
+  methods: {
+
+  },
+}
+</script>
+
+<style scoped>
+.home-swiper{
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+</style>

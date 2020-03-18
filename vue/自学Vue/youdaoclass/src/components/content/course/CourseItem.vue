@@ -41,7 +41,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.course_item_list>a:hover>img{
+.course_item_list>a:hover{
   transform: translate(0, -10px);
   box-shadow: 10px 10px 5px #eaeaea;
 }

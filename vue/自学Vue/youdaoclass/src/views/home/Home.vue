@@ -16,7 +16,7 @@ import HotCourse from './childComp/HotCourses';
 import FindCourse from './childComp/FindCourse';
 import CourseList from './childComp/CourseList';
 
-import {getHomeData} from 'network/home.js';
+import {getHomeData,getHomeListData} from 'network/home.js';
 
 export default {
   name: 'Home',
@@ -46,7 +46,11 @@ export default {
       this.banners = this.data.head;
       this.popularCourse = this.data.popularCourse;
       this.discover = this.data.discover;
-      this.tagRecommendCourses = this.data.tagRecommendCourses;
+      
+    //2.
+    getHomeListData().then(res => {
+      this.tagRecommendCourses = res.data.tagRecommendCourses;
+    })
     })
   },
 }

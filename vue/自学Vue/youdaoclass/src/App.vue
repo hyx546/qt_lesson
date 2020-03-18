@@ -4,16 +4,19 @@
     <keep-alive >
      <router-view></router-view>
     </keep-alive>
+    <foot-bar></foot-bar>
   </div>
 
 </template>
 <script>
-import navBar from 'components/content/navbar/navBar';
+import navBar from 'components/content/navbar/navBar.vue';
+import footBar from 'components/content/footbar/footBar.vue';
 
 export default {
   name: 'App',
   components: {
-    navBar
+    navBar,
+    footBar
   }
 }
 </script>

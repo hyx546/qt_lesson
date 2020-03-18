@@ -16,9 +16,15 @@
         </div>
       </div>
       <div class="course_item_footer">
-        <span class="course_item_buy">已有{{course.courseSaleNum}}人购买</span>
-        <span class="course_item_cost" v-if="course.iosSalePrice!=0.0">¥{{course.iosSalePrice}}</span>
-        <span class="course_item_cost" v-else>免费</span>
+        <span class="buy">
+          <p class="time" v-if="time(course.saleEndTime) > 0">距结束:{{returnTime()}}</p>
+          <p class="course_item_buy" v-if="course.courseSaleNum > 0">已有{{course.courseSaleNum}}人购买</p>
+        </span>
+        <span class="price">
+          <span v-if="course.courseOriginalPrice" class="courseOriginalPrice">¥{{course.courseOriginalPrice}}</span>
+          <span class="course_item_cost" v-if="course.iosSalePrice!=0.0">¥{{course.iosSalePrice}}</span>
+          <span class="course_item_cost" v-else>免费</span>
+        </span>
       </div>
     </a>
   </div>
@@ -28,12 +34,42 @@
 export default {
   data () {
     return {
-
+      mss: '',
+      days: '',
+      hours: '',
+      minutes: '',
+      seconds: '',
     }
   },
   props: [
     'course'
-  ]
+  ],
+  methods: {
+    time(date1) {
+      let date2 = new Date();
+      this.mss = date1- date2.getTime(); 
+      this.days = Math.floor(this.mss / (1000 * 60 * 60 * 24));
+      this.hours = Math.floor((this.mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      this.minutes = Math.floor((this.mss % (1000 * 60 * 60)) / (1000 * 60));
+      this.seconds = Math.round((this.mss % (1000 * 60)) / 1000);
+      return this.mss;
+    },
+    returnTime() {
+      if(this.days===0){
+        return this.hours +':'+ this.minutes +':' + this.seconds + '秒'
+      }
+      else if(this.hours === 0) {
+        return this.minutes +':' + this.seconds + '秒'
+      }
+      else if (this.minutes === 0){
+        return this.seconds + '秒'
+      }
+      else{
+        return this.days + '天' + this.hours +':'+ this.minutes +':' + this.seconds 
+      }
+      
+    }
+  },
 
 }
 </script>
@@ -41,17 +77,16 @@ export default {
 <style scoped>
 .course_item{
   height: 272px;
-    width: 280px;
-    overflow: hidden;
-    display: inline-block;
-    border: 1px solid #ebebeb;
-    border-radius: 4px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 20px;
-    background: #fff;
-    margin: 0 20px 20px 0;
-    vertical-align: top;
+  width: 280px;
+  overflow: hidden;
+  display: inline-block;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 20px;
+  background: #fff;
+  margin: 0 20px 20px 0;
+  vertical-align: top;
 }
 .course_item:hover {
   transform: translate(0, -10px);
@@ -124,18 +159,33 @@ export default {
   position: relative;
   font-weight: 400;
 }
+.buy{
+  /* padding-top: 5px; */
+  font-weight: 300;
+  font-size: 10px;
+  margin-bottom: 4px;
+  display: inline-block;
+  color: #ff773a;
+}
+.price{
+  font-size: 22px;
+  float: right;
+}
+.courseOriginalPrice{
+  text-decoration: line-through;
+  font-size: 14px;
+    color: #a7b0b8;
+    margin-right: 5px;
+}
 .course_item_buy{
   color: #818a92;
   font-weight: 300;
   font-size: 12px;
+  margin-top: 2px;
 }
 .course_item_cost{
-  position: absolute;
-  right: 0;
-  bottom: 0;
   font-size: 22px;
   color: #ff773a;
-  display: inline-block;
 }
 .course:hover>.course_item_classify{
   transform: translate(0, -10px);

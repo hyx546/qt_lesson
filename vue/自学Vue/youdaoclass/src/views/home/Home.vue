@@ -4,6 +4,7 @@
     <home-swiper class="home-swiper" :banners="banners" ></home-swiper>
     <hot-course :popularCourse="popularCourse"></hot-course>
     <find-course :discover="discover"></find-course>
+    <course-list :tagRecommendCourses="tagRecommendCourses"></course-list>
   </div>
 </template>
 
@@ -13,6 +14,7 @@ import listBar from 'views/home/childComp/listBar.vue';
 import HomeSwiper from './childComp/HomeSwiper';
 import HotCourse from './childComp/HotCourses';
 import FindCourse from './childComp/FindCourse';
+import CourseList from './childComp/CourseList';
 
 import {getHomeData} from 'network/home.js';
 
@@ -24,14 +26,16 @@ export default {
       tagRecommends: [],
       banners: [],
       popularCourse: [],
-      discover:[]
+      discover:[],
+      tagRecommendCourses: []
     }
   },
   components: {
     listBar,
     HomeSwiper,
     HotCourse,
-    FindCourse
+    FindCourse,
+    CourseList,
   },
   created() {
     //1.请求全部数据
@@ -42,10 +46,8 @@ export default {
       this.banners = this.data.head;
       this.popularCourse = this.data.popularCourse;
       this.discover = this.data.discover;
+      this.tagRecommendCourses = this.data.tagRecommendCourses;
     })
-  },
-  methods: {
-
   },
 }
 </script>

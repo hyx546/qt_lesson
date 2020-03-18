@@ -1,6 +1,7 @@
 <template>
   <div class="Title">
     <h2 class="msg">{{message}}</h2>
+    <slot name="more"></slot>
   </div>
 </template>
 

@@ -27,13 +27,21 @@ const routes = [
     meta: {
       isLogin: false
     }
-  },{
+  },
+  {
     path: '/user',
     name: 'User',
     component: () => import('views/user/User.vue'),
     meta: {
       isLogin: true
     }
+  },
+
+  // 小学
+  {
+    path: '/tag/430',
+    name: 'primary',
+    component: () => import('views/tag/primary.vue'),
   }
 ]
 

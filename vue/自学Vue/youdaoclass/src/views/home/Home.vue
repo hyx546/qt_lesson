@@ -40,7 +40,7 @@ export default {
   created() {
     //1.请求全部数据
     getHomeData().then(res => { 
-      console.log(res)
+      // console.log(res)
       this.data = res.data;
       this.tagRecommends = this.data.tagRecommends;
       this.banners = this.data.head;

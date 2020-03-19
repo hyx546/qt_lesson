@@ -3,7 +3,7 @@
     <div class="navigation_bar_list">
       <ul class="list_items">
         <li class="list_item">
-          <span class="title" href="/tag/430">小学</span>
+         <router-link to="/tag/430"><span class="title">小学</span></router-link> 
           <span class="item_hover"></span>
           <ul class="item_items">
             <li class="item_item">语文</li>

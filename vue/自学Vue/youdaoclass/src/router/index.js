@@ -23,7 +23,17 @@ const routes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('components/common/login/Login.vue')
+    component: () => import('components/common/login/Login.vue'),
+    meta: {
+      isLogin: false
+    }
+  },{
+    path: '/user',
+    name: 'User',
+    component: () => import('views/user/User.vue'),
+    meta: {
+      isLogin: true
+    }
   }
 ]
 

@@ -104,7 +104,6 @@ export default {
   margin-top: 50px;
   font-weight: 300;
   background: #fff;
-  border: 1px solid #000;
 }
 .footer_bar div{
   vertical-align: top;

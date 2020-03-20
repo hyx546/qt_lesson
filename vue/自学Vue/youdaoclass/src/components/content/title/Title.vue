@@ -21,4 +21,7 @@ export default {
   display: block;
   margin: 30px 0 ;
 }
+.msg{
+  color: rgba(0, 0, 0, 0.863);
+}
 </style>

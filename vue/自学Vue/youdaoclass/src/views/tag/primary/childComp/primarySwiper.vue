@@ -1,14 +1,14 @@
 <template>
-  <div class="HomeSwiper" >
-    <Carousel :banners="banners"></Carousel>
+  <div class="PrimarySwiper" >
+    <course-swiper :banners="banners"></course-swiper>
   </div>
 </template>
 <script>
-import Carousel from 'components/content/carousel/Carousel.vue';
+import CourseSwiper from 'components/content/swiper/CourseSwiper.vue';
 
 export default {
   components: {
-    Carousel
+    CourseSwiper
   },
   props: {
     banners: {

@@ -46,13 +46,13 @@ export default {
   methods: {
     onScroll() {
       //可滚动容器的高度
-      let innerHeight = document.querySelector('#CourseList').clientHeight;
+      // let innerHeight = document.querySelector('#CourseList').clientHeight;
       //屏幕尺寸高度
-      let outerHeight = document.documentElement.clientHeight;
+      // let outerHeight = document.documentElement.clientHeight;
       //可滚动容器超出当前窗口显示范围的高度
       let scrollTop = document.documentElement.scrollTop;
       //scrollTop在页面为滚动时为0，开始滚动后，慢慢增加，滚动到页面底部时，出现innerHeight < (outerHeight + scrollTop)的情况，严格来讲，是接近底部。
-      console.log(innerHeight + " " + outerHeight + " " + scrollTop);
+      // console.log(innerHeight + " " + outerHeight + " " + scrollTop);
       if (scrollTop > 2000 ) {
           //加载更多操作
           console.log("loadmore");

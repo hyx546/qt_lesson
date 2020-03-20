@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      current: -2
+      current: -1
     }
   },
   props: {
@@ -49,6 +49,7 @@ export default {
   width: 1180px;
   margin: 30px auto;
   margin-top: 100px;
+  margin-bottom: 20px;
 }
 .title{
   font-size: 25px;

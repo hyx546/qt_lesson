@@ -41,7 +41,7 @@ const routes = [
   {
     path: '/tag/430',
     name: 'primary',
-    component: () => import('views/tag/primary.vue'),
+    component: () => import('views/tag/primary/primary.vue'),
   }
 ]
 

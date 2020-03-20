@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <listBar></listBar>
+    <listBar :fixedEntries="fixedEntries"></listBar>
     <home-swiper class="home-swiper" :banners="banners" ></home-swiper>
     <hot-course :popularCourse="popularCourse"></hot-course>
     <find-course :discover="discover"></find-course>
@@ -27,7 +27,8 @@ export default {
       banners: [],
       popularCourse: [],
       discover:[],
-      tagRecommendCourses: []
+      tagRecommendCourses: [],
+      fixedEntries: [], //标题栏
     }
   },
   components: {
@@ -46,6 +47,7 @@ export default {
       this.banners = this.data.head;
       this.popularCourse = this.data.popularCourse;
       this.discover = this.data.discover;
+      this.fixedEntries = this.data.fixedEntries;
       
     //2.
     getHomeListData().then(res => {

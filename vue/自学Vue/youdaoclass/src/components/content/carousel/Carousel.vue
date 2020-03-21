@@ -44,36 +44,31 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
   }
 </script>
 
-<style>
+<style scoped >
 .Carousel{
   margin: 0 auto;
   width: 1180px;
   height: 360px;
   position: relative;
 }
-.slick-prev{
+/* .slick-prev{
   position: absolute;
   left: 0;
   background: rgba(0, 0, 0, 0.1);
   height: 60px;
   width: 36px;
   z-index: 10;
+  background: rgba(0, 0, 0, 0.1) url(https://shared-https.ydstatic.com/ke/web/v1.2.0/20f22b83.png) center center no-repeat;
 }
 .slick-next{
-  background-color: red;
   position: absolute;
   right: 0;
   background: rgba(0, 0, 0, 0.1);
   height: 60px;
   width: 36px;
   z-index: 10;
-}
-.slick-prev:before, .slick-next:before {
-  opacity: 0;
-  /* color: white; */
-}
-.vscarousel .slick-dots {
-  position: absolute;
-  bottom: 0;
-}
+   background: rgba(0, 0, 0, 0.1) url(https://shared-https.ydstatic.com/ke/web/v1.2.0/30d608cd.png) center center no-repeat;
+} */
+
+
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="course">
-    <a :href="'#/menu_pages/page_primary/'+course.id" class="course_item" v-if="course">
+    <router-link :to="'/course/detai/' + course.id" class="course_item" v-if="course">
       <span class="course_item_classify">{{course.categoryName}}</span>
       <h5 class="course_item_title">{{course.courseTitle}}</h5>
       <div class="course_item_time">
@@ -26,7 +26,7 @@
           <span class="course_item_cost" v-else>免费</span>
         </span>
       </div>
-    </a>
+    </router-link>
   </div>
 </template>
 
@@ -87,11 +87,12 @@ export default {
   background: #fff;
   margin: 0 20px 20px 0;
   vertical-align: top;
+
 }
 .course_item:hover {
-  transform: translate(0, -10px);
-  box-shadow: 10px 10px 5px #eaeaea;
-
+  transform: translate(0, -2.5px);
+  box-shadow:  -5px 5px 2.5px #eaeaea;
+  transition:all .5s ease 0s;
 }
 .course_item:hover>.course_item_classify{
   background-color: rgb(6, 189, 6);
@@ -186,9 +187,5 @@ export default {
 .course_item_cost{
   font-size: 22px;
   color: #ff773a;
-}
-.course:hover>.course_item_classify{
-  transform: translate(0, -10px);
-  box-shadow: 10px 10px 5px #eaeaea;
 }
 </style>

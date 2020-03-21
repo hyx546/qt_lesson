@@ -25,7 +25,6 @@ export default {
   data() {
     return {
       isLoading: false,
-      page:1
     }
   },
   props: {

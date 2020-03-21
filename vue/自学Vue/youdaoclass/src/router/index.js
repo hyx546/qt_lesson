@@ -39,7 +39,7 @@ const routes = [
 
   // 小学
   {
-    path: '/tag/430',
+    path: '/tag/:id',
     name: 'primary',
     component: () => import('views/tag/primary/primary.vue'),
   }

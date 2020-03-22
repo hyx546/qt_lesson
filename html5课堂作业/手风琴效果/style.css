@@ -1,0 +1,53 @@
+*{padding: 0;margin: 0;list-style: none}
+#divbox{
+    width: 1000px;
+    margin:100px auto;
+}
+ul{
+    width: 1200px;
+    height: 150px;
+    display: flex;
+}
+ul li{
+    width: 250px;
+    color:red;
+    border: 1px dashed #eee;
+    cursor: pointer;
+}
+ul li p{
+    margin-top: 40px;
+    color: rgba(46, 44, 44, 0.795);
+}
+ul li h2{
+    /* margin-top: 30px; */
+    font-size: 24px;
+}
+ul li h2 em{
+    font-weight: 400;
+    margin-left: 5px;
+}
+.pic1{
+
+    background: url('./1.jpg') no-repeat bottom right;
+}
+.pic1 h3{
+    color: purple;
+}
+.pic2{
+    background: url('./2.jpg') no-repeat bottom right;
+}
+.pic3{
+    background: url('./3.jpg') no-repeat bottom right;
+}
+.pic3 h3{
+    color: green;
+}
+.pic4{
+    background: url('./4.jpg') no-repeat bottom right;
+}
+.pic5{
+    background: url('./5.jpg') no-repeat bottom right;
+}
+.active{
+    width: 300px;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="divbox">
+    <ul>
+        <li class="pic1">
+          <h3>时装团</h3>
+          <p>时尚春装, 清新小潮搭配</p>
+          <h2>1<em>折起</em></h2>
+        </li>
+        <li class="pic2">
+          <h3>TV购</h3>
+          <p>补血养颜，就是这么简单</p>
+          <h2>2.6<em>折起</em></h2>
+        </li>
+        <li class="pic3">
+          <h3>聚新鲜</h3>
+          <p>最纯正的泰国香米</p>
+          <h2>5<em>折起</em></h2>
+        </li>
+        <li class="pic4">
+          <h3>Baby购</h3>
+          <p>宝宝该换装了, 新品抢购</p>
+          <h2>2.5<em>折起</em></h2>
+        </li>
+        <li class="pic5">
+          <h3>聚美妆</h3>
+          <p>聚美妆1/2周年庆</p>
+          <h2>1<em>折起</em></h2>
+        </li>
+
+    </ul>
+</div>
+<script>
+  var lis=document.getElementsByTagName('li');   //获取document中的所有li
+ 
+ /*animate动画*/
+ function ani(obj){
+     timer=setInterval(function(){    //设置定时器
+         var speed=10;
+         if(parseInt(obj.style.width)<270){     //如果传入的对象的宽小于200px
+             obj.style.width=parseInt(obj.style.width)+speed+'px';   //让当前宽加speed
+             speed+=10;    //每执行一次定时器，speed+10
+         }else{
+             return;
+         }
+     },30);  // 20ms执行一次定时器
+ }
+  
+ for(let i=0;i<lis.length;i++){   //遍历li数组
+     lis[i].index=i;         //循环把i的值赋值给li的index
+     var timer;
+     lis[i].onmouseover=function(){
+         for(let i=0;i<lis.length;i++){
+             lis[i].style.width='195px';    //当鼠标移入到某个li时，遍历循环数组，把所有li的宽都设置为100px
+         }
+         ani(lis[this.index]);  //使用ani方法，把鼠标移入的li的宽值变为200px
+  
+     }
+     lis[i].onmouseout=function(){    
+         lis[this.index].style.width='195px';       //鼠标移出时，把当前li的宽设置回100px
+         clearInterval(timer);      //清除定时器
+     }
+ }
+</script>
+</body>
+</html>

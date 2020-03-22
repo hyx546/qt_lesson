@@ -3,21 +3,26 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+ const store = new Vuex.Store({
   // 设置属性
   state: {
     isLogin: false,
+    current: 0,
   },
   // 获取属性的状态
   getters: {
     // 获取登陆状态
     isLogin: state => state.isLogin,
+    current: state => state.current
   },
   // 设置属性状态
   mutations: {
     // 保存登陆状态
     userStatus(state, flag) {
       state.isLogin = flag
+    },
+    getCurrent(state,current) {
+      state.current = current
     }
   },
   //  应用mutations
@@ -30,3 +35,5 @@ export default new Vuex.Store({
   modules: {
   }
 })
+
+export default store;

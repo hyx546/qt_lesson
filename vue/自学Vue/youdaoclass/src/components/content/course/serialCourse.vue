@@ -1,75 +1,36 @@
 <template>
   <div class="course">
-    <router-link :to="'/course/detai/' + course.id" class="course_item" v-if="course">
-      <span class="course_item_classify">{{course.categoryName}}</span>
-      <h5 class="course_item_title">{{course.courseTitle}}</h5>
+    <router-link :to="'/course/detai/' + serialCourse.id" class="course_item" v-if="serialCourse">
+      <span class="course_item_classify">小学</span>
+      <h5 class="course_item_title">{{serialCourse.title}}</h5>
       <div class="course_item_time">
-        时间：{{course.courseTime}}
-        <ins>|</ins>{{course.lessonNum}}
+        {{serialCourse.serialType}}
+         / 共 2 门课
       </div>
-      <div class="course_item_teachers" v-if="course.teacherList">
+      <!-- <div class="course_item_teachers" v-if="course.teacherList">
         <div class="course_item_teacher" v-for="(item,i) in course.teacherList" :key="i" >
           <div v-if="i<3" >
              <img :src="item.imgUrl" alt="">
             <span>{{item.name}}</span>
           </div>
         </div>
-      </div>
-      <div class="course_item_footer">
-        <span class="buy">
-          <p class="time" v-if="time(course.saleEndTime) > 0">距结束:{{returnTime()}}</p>
-          <p class="course_item_buy" v-if="course.courseSaleNum > 0">已有{{course.courseSaleNum}}人购买</p>
-        </span>
+      </div> -->
+      <!-- <div class="course_item_footer">
         <span class="price">
           <span v-if="course.courseOriginalPrice && course.courseOriginalPrice!= course.iosSalePrice" class="courseOriginalPrice" >¥{{course.courseOriginalPrice}}</span>
           <span class="course_item_cost" v-if="course.iosSalePrice!=0.0">¥{{course.iosSalePrice}}</span>
           <span class="course_item_cost" v-else>免费</span>
         </span>
-      </div>
+      </div> -->
     </router-link>
   </div>
 </template>
 
 <script>
 export default {
-  data () {
-    return {
-      mss: '',
-      days: '',
-      hours: '',
-      minutes: '',
-      seconds: '',
-    }
-  },
   props: [
-    'course'
+    'serialCourse'
   ],
-  methods: {
-    time(date1) {
-      let date2 = new Date();
-      this.mss = date1- date2.getTime(); 
-      this.days = Math.floor(this.mss / (1000 * 60 * 60 * 24));
-      this.hours = Math.floor((this.mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      this.minutes = Math.floor((this.mss % (1000 * 60 * 60)) / (1000 * 60));
-      this.seconds = Math.round((this.mss % (1000 * 60)) / 1000);
-      return this.mss;
-    },
-    returnTime() {
-      if(this.days===0){
-        return this.hours +':'+ this.minutes +':' + this.seconds + '秒'
-      }
-      else if(this.hours === 0) {
-        return this.minutes +':' + this.seconds + '秒'
-      }
-      else if (this.minutes === 0){
-        return this.seconds + '秒'
-      }
-      else{
-        return this.days + '天' + this.hours +':'+ this.minutes +':' + this.seconds 
-      }
-      
-    }
-  },
 
 }
 </script>
@@ -122,9 +83,19 @@ export default {
     overflow: hidden;
 }
 .course_item_time{
+  height: 19px;
+  width: fit-content;
+  text-align: center;
+  line-height: 17px;
+  font-family: PingFangSC-Regular;
   font-size: 12px;
-    color: #818a92;
-    font-weight: 300;
+  vertical-align: center;
+  color: #ff905d;
+  background: #fff7f3;
+  border: 1px solid #ffe3d6;
+  border-radius: 2px;
+  padding: 0 10px;
+  margin: -1px 0;
 }
 .course_item_time ins{
   margin: 0 2px;

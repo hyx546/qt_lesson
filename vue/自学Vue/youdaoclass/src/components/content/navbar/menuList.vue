@@ -41,6 +41,7 @@ export default {
       this.current = -1
     }
   },
+  
 }
 </script>
 

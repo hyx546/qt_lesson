@@ -35,6 +35,10 @@ import CourseSwiper from 'components/content/carousel/CourseSwiper.vue';
 </script>
 
 <style  scoped>
+.tagSlide{
+  width: 1200px;
+  margin: 0 auto;
+}
 .tagImage{
   height: 272px;
   width: 280px;

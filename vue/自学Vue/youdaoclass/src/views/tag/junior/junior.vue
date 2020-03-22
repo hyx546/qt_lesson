@@ -1,5 +1,5 @@
 <template>
-  <div class="primary">
+  <div class="preSchool">
     <menu-list :subTag="subTag" :name="name" :id="id"></menu-list>
     <carousel class="carousel" :banners="banners"></carousel>
     <mini-course :column="column"></mini-course>
@@ -13,7 +13,7 @@ import menuList from 'components/content/navbar/menuList.vue';
 import MiniCourse from 'components/content/course/MiniCourse';
 import AllCourse from 'components/content/course/AllCourse.vue';
 
-import {getPrimaryData,getPrimaryElseCourse,getPrimaryElseCourse2} from 'network/primary/primary.js';
+import {getJuniorData,getJuniorElseData,getJuniorElseData2} from 'network/junior/junior.js';
   export default {
     data() {
       return {
@@ -34,33 +34,30 @@ import {getPrimaryData,getPrimaryElseCourse,getPrimaryElseCourse2} from 'network
     },
     created() {
       // 请求数据
-      getPrimaryData().then(res => {
-        
-        this.data = res.data;
+      getJuniorData().then(res => {
         this.id = res.data.id
-        this.name = this.data.name;
-        this.subTag = this.data.subTag
+        this.name = res.data.name;
+        this.subTag = res.data.subTag
 
-        this.banners = this.data.banner
-        this.column = this.data.column // 精品课程  
-        this.courses = this.data.courses // 全部课程
+        this.banners = res.data.banner
+        this.column = res.data.column // 精品课程  
+        this.courses = res.data.courses // 全部课程
       })
-      // 上拉加载第一次的课程
-      getPrimaryElseCourse().then(res => {
+
+       // 上拉加载第一次的课程
+      getJuniorElseData().then(res => {
         this.courses.push(...(res.data.course))
-        // console.log(this.courses)
       })
       // 上拉加载第二次的课程
-      getPrimaryElseCourse2().then(res => {
+      getJuniorElseData2().then(res => {
         this.courses.push(...(res.data.course))
-        // console.log(this.courses)
       })
     },
   }
 </script>
 
 <style scoped>
-.primary{
+.preSchool{
   margin-top: 66px;
 }
 .primary-swiper{

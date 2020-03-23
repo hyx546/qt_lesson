@@ -4,7 +4,7 @@ export class Settings extends Component {
   render() {
     return (
       <div>
-        
+        settings
       </div>
     )
   }

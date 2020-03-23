@@ -1,9 +1,36 @@
-import Dashboard from './Dashboard'
-import Login from './Login'
-import NotFound from './NotFound'
-import Settings from './Settings'
-import ArticleList from './Article/index'
-import ArticleEdit from './Article/Edit'
+import Loadable from 'react-loadable'
+import { Loading} from '../components'
+// import Dashboard from './Dashboard'
+// import Login from './Login'
+// import NotFound from './NotFound'
+// import Settings from './Settings'
+// import ArticleList from './Article/index'
+// import ArticleEdit from './Article/Edit'
+// 下面懒加载
+const Dashboard = Loadable({
+  loader: () => import('./Article'),
+  loading: Loading
+})
+const Login = Loadable({
+  loader: () => import('./Login'),
+  loading: Loading
+})
+const NotFound = Loadable({
+  loader: () => import('./NotFound'),
+  loading: Loading
+})
+const Settings = Loadable({
+  loader: () => import('./Settings'),
+  loading: Loading
+})
+const ArticleList = Loadable({
+  loader: () => import('./Article/index'),
+  loading: Loading
+})
+const ArticleEdit = Loadable({
+  loader: () => import('./Article/Edit'),
+  loading: Loading
+})
 
 export {
   Dashboard,

@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-export class ArticleList extends Component {
+export class Loading extends Component {
   render() {
     return (
       <div>
-        文章列表
+        loading...
       </div>
     )
   }
 }
 
-export default ArticleList
+export default Loading

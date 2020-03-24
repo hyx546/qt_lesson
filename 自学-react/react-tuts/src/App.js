@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Route,Switch,Redirect} from 'react-router-dom'
-import {adminRouter} from './routes'
+import {adminRoutes} from './routes'
+import {Frame} from './components'
 
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <div>这里是公共的部分</div>
+      <Frame>
         <Switch>
           {
-            adminRouter.map(route => {
+            adminRoutes.map(route => {
               return (
                 <Route key={route.pathname} path={route.pathname} exact={route.exact} render={(routerProps) => {
                   return <route.component {...routerProps}/>
@@ -18,11 +18,10 @@ class App extends Component {
               )
             })
           }
-          <Redirect to={adminRouter[0].pathname} from='/admin' exact />
+          <Redirect to={adminRoutes[0].pathname} from='/admin' exact />
           <Redirect to='/404' />
         </Switch>
-        
-      </div>
+      </Frame>
     )
   }
 }

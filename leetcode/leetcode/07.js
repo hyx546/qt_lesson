@@ -31,7 +31,5 @@ var reverse = function(x) {
     else{
         return 0;
     }
-    
-        
 };
 reverse(123)

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      /*
+      开启flex布局：
+        flex： 块级元素
+        inline-flex： 行内元素
+      */
+      display: flex;
+      width: 550px;
+      height: 400px;
+      background-color: #f00;
+      /* line-height: 100px; */
+      /* flex-direction: row; */
+      /* justify-content: space-between; */
+      /* align-items: baseline; */
+      /* flex-wrap: wrap-reverse; */
+      /* flex-flow: row-reverse wrap;
+      justify-content: space-evenly; */
+      flex-flow: wrap;
+      align-content:space-evenly;
+    }
+    .item{
+      width: 100px;
+      height: 100px;
+      text-align: center;
+    }
+    .item1{
+      background-color: orange;
+      /* height: 60px;
+      font-size: 60px; */
+    }
+    .item2{
+      background-color: #0f0;
+      /* height: 150px; */
+    }
+    .item3{
+      background-color: #00f;
+      /* height: 120px; */
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item item1">item1</div>
+    <div class="item item2">item2</div>
+    <div class="item item3">item3</div>
+    <div class="item item1">item1</div>
+    <div class="item item2">item2</div>
+    <div class="item item3">item3</div>
+    <div class="item item1">item1</div>
+    <div class="item item2">item2</div>
+    <div class="item item3">item3</div>
+  </div>
+  <strong>strong元素</strong>
+</body>
+</html>

@@ -4,11 +4,14 @@
  * @return {number}
  */
 var searchInsert = function(nums, target) {
-  if(nums.indexOf(target) != -1) return nums.indexOf(target);
-  for(let i=0;i<nums.length;i++) {
-    if(nums[i] > target) nums.splice(i-1,0,target);
-    break;
-  }
-  return nums.indexOf(target);
+  let pos = nums.indexOf(target);
+  if(pos != -1) return pos;
+  nums.push(target);
+  console.log(nums);
+  
+  // let arr = nums.sort(function(a,b) {
+  //   return a-b;
+  // })
+  // return arr.indexOf(target);
 };
 searchInsert([1,3,5,6],2)

@@ -1,0 +1,15 @@
+{
+  "name": "koa2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "中台 后端服务 越来越往后 越来越纯 提供数据 现在 api -> json",
+  "dependencies": {
+    "koa": "^2.10.0"
+  }
+}

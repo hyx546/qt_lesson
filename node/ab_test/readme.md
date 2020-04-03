@@ -33,9 +33,10 @@ ip 响应服务
   开发环境镜像
   统一所有机器的开发环境 centos 7 取代来虚拟机， 不用提前分配超大空间以及内存，操作特别快，全命令行化
 
--docker 镜像文件 docker pull 
+-docker 镜像文件 
+docker pull daocloud.io/library/centos:7.1.1503
 docker images
-docker run -p 5200:5200 -it edsdssd /bin/bash
+docker run -p 5200:5200 -it e1430271e2f9 /bin/bash
 mkdir abtest
 cd abtest
 ls
@@ -75,6 +76,18 @@ ab -V
 ab -c50 -n400  http://127.0.0.1:5200/
 pm2 stop 0
 pm2 start index.js
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

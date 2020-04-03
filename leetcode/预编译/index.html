@@ -8,9 +8,39 @@
 </head>
 <body>
   <script>
-    console.log(a)
-      var a = 123
+    
+    // function test(a,b) {
+    //   console.log(a)
+    //   c=0
+    //   var c;
+    //   a =3 
+    //   console.log(b)
+    //   b=2 
+    //   console.log(b)
+    //   function b() {}
+    //   function d() {}
+    //   console.log(b)
+    //   console.log(c)
+    // }
+    //   test(1)
+
+    // GO{
+    //   global: undefined ,
+    //   fn: function() {...}
       
+    // }
+    global = 100;
+    function fn() {
+      console.log(global)
+      global = 200;
+      console.log(global)
+      var global = 300;
+    }
+    // AO{
+
+    // }
+    fn()
+    var global;
   </script>
 </body>
 </html>

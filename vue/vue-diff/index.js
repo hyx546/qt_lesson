@@ -91,7 +91,26 @@
       currentPatches.forEach((currentPatch) => {
         switch (currentPatch.type){
           case REPLACE: 
-
+            var newNode = (typeof currentPatch.node ==='string')
+              ?document.createTextNode(currentPatch.node)
+              : currentPatch.node.render()
+            node.parentNode.replaceChild(newNode,node)
+            break;
+          case REORDER:
+            reorderChildren(node,currentPatch.moves)
+            break;
+          case PROPS:
+            setProps(node, currentPatch.moves)
+            break;
+          case TEXT:
+            if(node.textContent){
+              node.textContent = currentPatch.content
+            }else{
+              node.nodeValue = currentPatch.content
+            }
+            break;
+          default:
+            throw new Rrror ('unknow patch type '+ currentPatch.type)
         }
       })
     }

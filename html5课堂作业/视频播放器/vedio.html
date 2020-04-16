@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视频</title>
+  <style>
+    *{
+      padding: 0;
+      border: 0;
+    }
+    .content{
+      width: 100%;
+      height: 100%;
+    }
+    .playList {
+      width: 100%;
+      border-top: 1px solid #000;
+    }
+    video{
+      width: 100%;
+    }
+    .item{
+      display: inline-block;
+      text-align: center;
+      line-height: 3;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      border: 1px solid #e5e5e5;
+      background-color: #eee;
+      cursor: pointer;
+    }
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <video  height="500px" autoplay='autoplay' id="video" src="" controls="controls"  ></video>
+    <div class="playList">
+        <h4>播放列表</h4>
+      <ul>
+        <li class="item active"  value="./1.mp4" title="1">1</li>
+        <li class="item" value="./2.mp4" title="2">2</li>
+        <li class="item" value="./3.mp4" title="3">3</li>
+        <li class="item" value="./4.mp4" title="4">4</li>
+        <li class="item" value="./5.mp4" title="5">5</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    var video = document.getElementById('video')
+    var lis = document.getElementsByTagName('li');
+    var url =[];
+    var list = document.getElementsByClassName('playList')
+    var currt = 1;//当前播放视频
+
+    
+    for (let i = 0; i < list.length; i++) {
+      url[i] = lis[i].getAttribute("value")
+    }
+
+    //绑定点击事件
+    for (let i = 0; i < lis.length; i++) {
+      lis[i].onclick = function() {
+        for (let j = 0; j < lis.length; j++) {
+          lis[j].classList.remove('active')
+          if(lis[j] == this){
+            video.setAttribute('src',this.getAttribute("value"))
+            lis[j].classList.add('active');
+            currt =j+1;
+          }
+        }
+      }
+    }
+
+    // 顺序播放
+    video.setAttribute('src',url[0]);
+
+    video.addEventListener('ended',play);
+    function play() {
+      video.src = url[currt];
+      video.load();
+      for (let i = 0; i < lis.length; i++) {
+        lis[i].classList.remove('active')
+        if(i == currt) {
+          video.setAttribute('src',lis[i].getAttribute("value"));
+          lis[i].classList.add('active');
+          video.play();
+        }
+      }
+      currt++;
+      if(currt>=lis.length) currt=0;
+    }
+  </script>
+</body>
+</html>

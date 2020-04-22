@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小项目</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .canva{
+      width: 500px;
+      margin: 0 auto;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="canva">
+    <canvas id="myCanvas" width="500" height="500"
+    style="border:1px solid #000000;">
+    </canvas>
+  </div>
+  <script>
+    var c=document.getElementById("myCanvas");
+    var ctx=c.getContext("2d");
+    ctx.fillStyle ="#eee"
+    ctx.fillRect(0,0,500,500);
+    // 绘制图片
+    var src = [
+      "./img/artichoke.png",
+      "./img/chilli.png",
+      "./img/egg-plant.png",
+      // "./img/leek.png",
+      // "./img/peas.png",
+      // "./img/turnip.png"
+    ]
+    let arr=[]
+    for (let i = 25; i < 500; i+=100) {
+      for (let j = 25; j < 500; j+=100) {
+        let img = new Image();
+        let count = parseInt(Math.random()*3);
+        img.src=src[count];
+        img.onload=function(){
+          ctx.drawImage(img,i,j,48,48);
+        }
+        arr.push(img.src)
+      }
+    }
+    console.log(arr);
+    // 点击事件
+    c.addEventListener("click", function(event) {
+      let x=getMousePos(c, event)[0]
+      let y = getMousePos(c, event)[1]
+
+      console.log(x,y);
+      clearImage(x,y);
+    });
+
+    //当鼠标点击时获取鼠标在canvas的坐标
+    function getMousePos(canvas, event) {
+    //1
+    let rect = canvas.getBoundingClientRect();
+    //2
+    let x = event.clientX - rect.left * (canvas.width / rect.width);
+    let y = event.clientY - rect.top * (canvas.height / rect.height);
+    return [x=x>0?x-24:0,y=y>0?y-24:0]
+  }
+
+    // 清除事件
+    var clearImage = function(x,y) {
+      
+      ctx.clearRect(x,y,70,70);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<style type="text/css">
+			body,
+			html,
+			#allmap {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				margin: 0;
+				font-family: "微软雅黑";
+			}
+			
+			span {
+				height: 50px;
+				width: 150px;
+				border: red 3px solid;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: #fff;
+				font-size: 16px;
+			}
+			
+			#lng {
+				position: absolute;
+				left: 50px;
+				top: 50px
+			}
+			
+			#lat {
+				position: absolute;
+				left: 50px;
+				top: 150px;
+			}
+			
+			input {
+				position: absolute;
+				bottom: 50px;
+				left: 50px;
+				width: 200px;
+				height: 35px;
+				border: blueviolet 2px solid;
+			}
+		</style>
+		<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=vSPqE8AZ2GOsVLZoXIp6P4S8zL8fPGV5"></script>
+		<title>浏览器定位</title>
+	</head>
+
+	<body>
+
+		<div id="allmap"></div>
+		<span id="lng">
+			
+		</span>
+		<span id="lat">
+			
+		</span>
+		<input type="button" name="" id="" value="获取当前位置的经度和纬度" onclick="getLocal()" />
+	</body>
+
+</html>
+<script type="text/javascript">
+	var lng = document.getElementById("lng");
+	var lat = document.getElementById("lat");
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.331398, 39.897445);
+	map.centerAndZoom(point, 12);
+
+	function getLocal() {
+		var geolocation = new BMap.Geolocation(); /*用手机扫码定位*/
+		geolocation.getCurrentPosition(function(r) {
+			if(this.getStatus() == BMAP_STATUS_SUCCESS) {
+				var mk = new BMap.Marker(r.point);
+				map.addOverlay(mk);
+				map.panTo(r.point);
+				lng.innerHTML = "经度："+r.point.lng;
+				lat.innerHTML="纬度：" +r.point.lat;
+				alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+
+			} else {
+				alert('failed' + this.getStatus());
+			}
+		});
+	}
+</script>

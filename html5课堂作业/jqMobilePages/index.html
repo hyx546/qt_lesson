@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title></title>
+	<!--<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=mZI4XmzTUEBhFqvWawlp2hgL"></script>
+	<script src="http://lbsyun.baidu.com/index.php?title=webapi/direction-api-v2"></script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.page {
+			width: 100%;
+		}
+
+		.img {
+			position: relative;
+		}
+
+		#pageone .imgIcon {
+			position: absolute;
+			left: 50%;
+			top: 20%;
+			transform: translate(-50%, -20%);
+		}
+
+		#pageone .imgIcon a {
+			color: #ccc !important;
+			display: inline-block;
+			margin-left: 67px;
+		}
+
+		#pagetwo {
+			position: relative;
+			background-image: url('./img/2303.jpg');
+			background-size: cover;
+		}
+
+		#pagetwo #mainlist a{
+			background: rgba(19, 18, 18, 0.5);
+			color: #fff;
+			font-weight: 300;
+			font-family:sans-serif;
+		}
+
+		#pagetwo .imgIcon {
+			position: absolute;
+			left: 30%;
+			top: 5%;
+		}
+
+		#pagetwo .title {
+			border: 1px solid red;
+			margin-top: 51%;
+		}
+
+		#pagetwo #mainlist img {
+			margin: 5px;
+			margin: 3px;
+			width: 74px;
+		}
+
+		#pagetwo #mainlist span {
+			margin-top: 21px;
+			display: inline-block;
+		}
+
+		#pagethree {
+			position: relative;
+			background-image: url('./img/2301.jpg');
+			background-size: cover;
+		}
+
+		#pagethree .imgIcon {
+			position: absolute;
+			left: 30%;
+			top: 5%;
+		}
+
+		#pagethree .title {
+			border: 1px solid red;
+			margin-top: 51%;
+		}
+
+		#pagethree #mainlist img {
+			margin: 5px;
+			margin: 3px;
+			width: 74px;
+		}
+
+		#pagethree #mainlist a{
+			background: rgba(19, 18, 18, 0.5);
+			color: #fff;
+			font-weight: 300;
+			font-family:sans-serif;
+		}
+
+		#pagethree #mainlist span {
+			margin-top: 21px;
+			display: inline-block;
+		}
+
+		#pagethree #mainlist .ui-li-count {
+			color: #000000;
+			margin-top: -10px;
+		}
+
+		#pagefour {
+			position: relative;
+			background-image: url('./img/2301.jpg');
+			background-size: cover;
+		}
+
+		#pagefour .imgIcon {
+			position: absolute;
+			left: 30%;
+			top: 5%;
+		}
+
+		#pagefour .title {
+			border: 1px solid red;
+			margin-top: 51%;
+		}
+
+		#pagefour #mainlist img {
+			margin: 5px;
+			margin: 3px;
+			width: 74px;
+		}
+
+		#pagefour #mainlist a{
+			background: rgba(19, 18, 18, 0.5);
+			color: #fff;
+			font-weight: 300;
+			font-family:sans-serif;
+		}
+
+		#pagefour #mainlist span {
+			margin-top: 9px;
+			display: inline-block;
+		}
+
+		#pagefive {
+			position: relative;
+			background-image: url('./img/2301.jpg');
+			background-size: cover;
+		}
+
+		#pagefive .imgIcon {
+			position: absolute;
+			left: 30%;
+			top: 5%;
+		}
+
+		#pagefive .title {
+			border: 1px solid red;
+			margin-top: 51%;
+		}
+
+		#pagefive #mainlist img {
+			margin: 5px;
+			margin: 3px;
+			width: 74px;
+		}
+
+		#pagefive #mainlist span {
+			margin-top: 21px;
+			display: inline-block;
+		}
+
+		#pagefive #mainlist {
+			color: #fff;
+			font-size: 12px;
+			font-weight: 300;
+		}
+
+		#pagefive #mainlist .restaurant {
+			background-color: rgba(78, 76, 76, 0.5);
+			padding: 8px;
+			height: 130px;
+			position: relative;
+			margin-top: 10px;
+		}
+
+		#pagefive #mainlist .restaurant li {
+			padding: 5px;
+			list-style: none;
+		}
+
+		#pagefive #mainlist p {
+			padding: 5px 0;
+			text-align: left;
+		}
+
+		#pagefive #mainlist .restaurant .find {
+			background-color: rgba(26, 25, 25, 0.5);
+			padding: 5px;
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+			border: 1px solid #000;
+			text-decoration: #000;
+		}
+
+		#pagefive #mainlist .detail {
+			background-color: rgba(78, 76, 76, .5);
+			margin-top: 8px;
+			padding: 8px;
+			height: 200px;
+		}
+
+		#pagefive #mainlist .detail .findList {
+			position: relative;
+			margin-top: 20px;
+		}
+
+		#pagefive #mainlist .detail .find {
+			background-color: rgba(26, 24, 24, 1);
+			border: 1px solid #000;
+			margin: 10px 3px;
+			padding: 6px 0px;
+			text-align: center;
+		}
+
+		#pagefive #mainlist .find img {
+			width: 18px;
+			position: absolute;
+			left: 16px;
+		}
+
+		#pagesix #header {}
+
+		#pagesix #content {
+			height: 500px;
+			border: 1px solid gray
+		}
+	</style>
+</head>
+
+<body>
+	<div data-role="page" id="pageone">
+		<div class="img">
+			<img src="./img/2301.jpg" alt="" height="700px">
+		</div>
+		<div class="imgIcon">
+			<img src="./img/2302.png" alt="" onclick="hideLoader()">
+			<a href="#pagetwo">加载中...</a>
+		</div>
+	</div>
+	<div data-role="page" id="pagetwo">
+		<div class="imgIcon">
+			<img src="./img/2302.png" alt="" width="70%" onclick="hideLoader()">
+		</div>
+		<div data-role="content" class="ui-content">
+			<div class="title">
+				<img src="./img/2304.png" alt=""
+					style="position: absolute;left: 11%;top: 18.5%;width: 104px;height: 189px;clip: rect(0px 80px 50px 0px);">
+				<em>
+					<h3 style="color: #fff; position: absolute;top: 21%;left: 23%;">今天你想吃点什么？</h3>
+				</em>
+			</div>
+			<div id="mainlist">
+				<ul data-role="listview" data-inset="true">
+					<li >
+						<a href="#pagethree">
+							<img src="./img/2305.jpg">
+							<span>传统中餐</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/2306.jpg">
+							<span>意大利Pizza</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/2307.jpg">
+							<span>日式料理</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/2308.jpg">
+							<span>汉堡</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/2309.jpg">
+							<span>蛋糕西点</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="img/2310.jpg">
+							<span>自助烧烤</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="pagethree">
+		<div class="imgIcon">
+			<img src="./img/2302.png" alt="" width="70%" onclick="hideLoader()">
+		</div>
+		<div data-role="content" class="ui-content">
+			<div class="title">
+				<img src="./img/2304.png" alt=""
+					style="position: absolute;left: 11%;top: 11.5%;width: 105px;height: 189px;clip: rect(62px 40px 97px 0px);">
+				<em>
+					<h3 style="color: #fff; position: absolute;top: 21%;left: 23%;">你想在哪个城市订餐？</h3>
+				</em>
+			</div>
+			<div id="mainlist">
+				<form class="ui-filterable">
+					<input id="myFilter" data-type="search" placeholder="Filter items">
+				</form>
+				<ul data-role="listview" data-inset="true" data-filter="true" data-input="#myFilter">
+					<li>
+						<a href="#pagefour">北京<span class="ui-li-count">8</span></a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							上海
+							<span class="ui-li-count">12</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							广州
+							<span class="ui-li-count">6</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							深圳
+							<span class="ui-li-count">7</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							哈尔滨
+							<span class="ui-li-count">3</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							长春
+							<span class="ui-li-count">2</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							沈阳
+							<span class="ui-li-count">4</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							呼和浩特
+							<span class="ui-li-count">2</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							太原
+							<span class="ui-li-count">3</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							石家庄
+							<span class="ui-li-count">5</span>
+						</a>
+					</li>
+					<li>
+						<a href="#pagefour">
+							西安
+							<span class="ui-li-count">7</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="pagefour">
+		<div class="imgIcon">
+			<img src="./img/2302.png" alt="" width="70%" onclick="hideLoader()">
+		</div>
+		<div data-role="content" class="ui-content">
+			<div class="title">
+				<img src="./img/2304.png" alt=""
+					style="position: absolute;left: 11%;top: 4.5%;width: 105px;height: 189px;clip: rect(104px 36px 149px 0px);">
+				<em>
+					<h3 style="color: #fff; position: absolute;top: 22.5%;left: 23%;">请选择餐厅？</h3>
+				</em>
+			</div>
+			<div id="mainlist">
+				<ul data-role="listview" data-inset="true">
+					<li style="background: #000 !important;">
+						<a href="#pagefive">
+							<img src="./img/2313.jpg">
+							<span>乐穆夫达西餐厅</span>
+							<img src="./img/2304.png" alt="" style="position: absolute;left: 30%;top: -152.5%;width: 105px;height: 189px;clip: rect(150px 93px 189px 0px);">
+						</a>
+					</li>
+					<li>
+						<a href="#pagefive">
+							<img src="img/2314.jpg">
+							<span>@成都印象</span>
+							<img src="./img/2304.png" alt="" style="position: absolute;left: 30%;top: -152.5%;width: 105px;height: 189px;clip: rect(150px 93px 189px 0px);">
+						</a>
+					</li>
+					<li>
+						<a href="#pagefive">
+							<img src="img/2315.jpg">
+							<span>欢乐农家农家菜馆</span>
+							<img src="./img/2304.png" alt="" style="position: absolute;left: 30%;top: -152.5%;width: 105px;height: 189px;clip: rect(150px 28px 189px 0px);">
+						</a>
+					</li>
+					<li>
+						<a href="#pagefive">
+							<img src="img/2316.jpg">
+							<span>恋爱转角情人餐馆</span>
+							<img src="./img/2304.png" alt="" style="position: absolute;left: 30%;top: -152.5%;width: 105px;height: 189px;clip: rect(150px 75px 189px 0px);">
+						</a>
+					</li>
+					<li>
+						<a href="#pagefive">
+							<img src="img/2317.jpg">
+							<span>星期五音乐餐吧</span>
+							<img src="./img/2304.png" alt="" style="position: absolute;left: 30%;top: -152.5%;width: 105px;height: 189px;clip: rect(150px 93px 189px 0px);">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="pagefive">
+		<div class="imgIcon">
+			<img src="./img/2302.png" alt="" width="70%" onclick="hideLoader()">
+		</div>
+		<div data-role="content" class="ui-content">
+			<div class="title">
+			</div>
+			<div id="mainlist">
+				<div class="restaurant">
+					<h3>乐穆夫达西餐厅</h3>
+					<img class="ui-li-aside" src="./img/2313.jpg"
+						style="float: right; width: 145px;height: 90px;margin-top: -16px;border: 1px solid #fff;"></img>
+					<p>特色菜品：</p>
+					<ul>
+						<li>经典西冷牛排</li>
+						<li>田园果蔬意面</li>
+						<li>经典小食</li>
+					</ul>
+					<div class="find">
+						查看餐厅网站
+					</div>
+				</div>
+				<div class="detail">
+					<h3>联系信息</h3>
+					<img class="ui-li-aside" src="./img/2319.jpg"
+						style="float: right; width: 145px;height: 90px;margin-top: -16px;border: 1px solid #fff;"></img>
+					<p>北京市西城区某某路288号</p>
+					<p>某某大厦1层</p>
+					<p>电话：010-00000000</p>
+					<div class="findList">
+						<div class="find"><img src="./img/maps.png" alt="" width="18" height="18" style="top: 0px;">
+							<a href="#pagesix" style="color: #fff; font-weight: 300;">在地图上查找</a>
+						</div>
+						<div class="find"><img src="./img/phone.png" alt="" width="18" height="18" style="top: 38px;"> 给餐厅打电话</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="pagesix">
+		<div data-role="header" id="header">
+			<!-- <p><input type='button' value='查询' onclick="run()" /></p>  -->
+			起点位置：<input class="txt" type="text" id="startInput" />
+			终点位置：<input class="txt" type="text"  id="endInput" />
+			<input type="button" value="步行" id="search" />
+		</div>
+		<div data-role="content" id="content">
+		</div>
+		<div id="r-result"></div>
+	</div>
+	<script>
+		setTimeout('showLoader()', 100)
+		function showLoader() {
+			//显示加载器.for jQuery Mobile 1.2.0
+			$.mobile.loading('show', {
+				text: '加载中...', //加载器中显示的文字
+				textVisible: true, //是否显示文字
+				theme: 'a', //加载器主题样式a-e
+				textonly: false, //是否只显示文字
+				html: "" //要显示的html内容，如图片等
+			});
+		}
+
+		//隐藏加载器.for jQuery Mobile 1.2.0
+		function hideLoader() {
+			//隐藏加载器
+			$.mobile.loading('hide');
+		}
+	</script>
+	<script type="text/javascript">
+
+		var map = new BMap.Map("content");
+		var search = document.getElementById("search");
+		var start = document.getElementById("startInput");
+		var end = document.getElementById("endInput");
+		map.centerAndZoom(new BMap.Point(115.8, 28.7), 13);
+		map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+		map.addControl(new BMap.NavigationControl());               // 添加平移缩放控件
+		map.addControl(new BMap.ScaleControl());                    // 添加比例尺控件
+		map.addControl(new BMap.OverviewMapControl()); //添加缩略地图控件
+
+		search.onclick = function () {
+			var walking = new BMap.WalkingRoute(map, {
+				renderOptions: {
+					map: map,
+					panel: "r-result",
+					autoViewport: true
+				}
+			});
+			walking.search(start.value, end.value);
+		}
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闲鱼</title>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    #login .header{
+      height: 130px;
+      background-color: rgb(247, 156, 21);
+    }
+    #login .header h1{
+      color: #fff;
+      font-size: 30px;
+      font-weight: 300;
+      line-height: 3;
+    }
+    #login .imgList{
+      display: flex;
+      background-color: #fff;
+    }
+    #login .imgItem{
+      flex: 1;
+    }
+    #register .header{
+      height: 130px;
+      background-color: rgb(247, 156, 21);
+    }
+    #register .header h1{
+      color: #fff;
+      font-size: 30px;
+      font-weight: 300;
+      line-height: 3;
+    }
+  </style>
+</head>
+<body>
+  <div data-role="page" id="login">
+
+    <div data-role="header" class="header">
+      <h1>校园闲鱼</h1>
+    </div>
+  
+    <div data-role="main" class="ui-content">
+      <form method="post" action="demo_form.php">
+        <div class="ui-field-contain">
+          <input type="text" name="name" id="name" placeholder="手机号/邮箱/用户名">       
+          <input type="password" name="password" id="psw" placeholder="密码">
+        </div>
+        <a href="./index.html"><input value="登录" data-role="button" style="background: rgb(247, 156, 21);text-align: center;color: #fff;font-weight: 300;"></a>
+          <p style="text-align: center;">未注册？请<a href="#register">注册</a></p>
+      </form>
+    </div>
+  
+    <div data-role="footer">
+      <div class="imgList">
+        <div class="imgItem">
+          <img src="./img/1226623.gif" alt="" width="100">
+        </div>
+        <div class="imgItem">
+          <img src="./img/1230490.gif" alt="" width="100">
+        </div>
+        <div class="imgItem">
+          <img src="./img/1230529.gif" alt="" width="100">
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- register -->
+  <div data-role="page" id="register">
+    <div data-role="header" class="header">
+      <h1>校园闲鱼</h1>
+    </div>
+  
+    <div data-role="main" class="ui-content">
+      <form method="post" action="demo_form.php">
+        <div class="ui-field-contain">
+          <input type="text" name="name" id="name" placeholder="手机号/邮箱/用户名">
+          <input type="password" name="password" id="psw" placeholder="密码">
+          <input type="password" name="apassword" id="apsw" placeholder="确认密码">
+        </div>
+        <a href="#login"><input value="注册" data-role="button" style="background: rgb(247, 156, 21);text-align: center;color: #fff;font-weight: 300;"></a>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

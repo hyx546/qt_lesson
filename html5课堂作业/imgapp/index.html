@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>闲鱼</title>
+	<!--<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>-->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+  <style>
+    #pageone{
+      width: 100%;
+      height: 100%;
+    }
+    #pageone .content{
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    #pageone .content img{
+      border: 2px solid rgb(207, 110, 30);
+    }
+    #pageone .content i{
+      color: rgb(207, 110, 30);
+    }
+    #pageone .row-one-left{
+      width: 180px;
+      float: left;
+    }
+    #pageone .row-one-right{
+      width: 180px;
+      float: left;
+    }
+    #pagefive .header{
+      height: 140px;
+      background-color: rgb(223, 141, 75);
+      position: relative;
+    }
+    #pagefive .header img{
+      display: inline-block;
+      position: absolute;
+      left: 40%;
+      top: 25%;
+      border-radius: 50%;
+    }
+    #pagefive .header span{
+      color: #fff;
+      position: absolute;
+      left: 42%;
+      bottom: 10%;
+    }
+    #pagefive .mypageList {
+      display: flex;
+      height: 120px;
+    }
+    #pagefive .mypageItem{
+      flex: 1;
+      text-align: center;
+      line-height: 0;
+      font-size: 12px;
+    }
+    #pagefive .content{
+      height: 435px;
+    }
+  </style>
+<body>
+  <!-- pageone -->
+	<div data-role="page" id="pageone">
+    <div data-role="header" class="header">
+      <img src="./img/cloth/clo1.jpg" width="400" height="200" alt="">
+    </div>
+  
+    <div data-role="content">
+      <div class="content">
+        <div class="row-one-left">
+          <img src="./img/cloth/re1.jpg" alt="" width="150"><br>
+          <span>9成新 春 宽松毛边长袖<br>牛仔
+            短外套</span><br>
+          <i>¥146.00</i><br>
+          <span>出售人：悠然的闲鱼</span>
+        </div>
+        <div class="row-one-right">
+          <img src="./img/cloth/re2.jpg" alt="" width="150"><br>
+          <span>9成新 春 宽松毛边长袖<br>牛仔
+            短外套</span><br>
+          <i>¥146.00</i><br>
+          <span>出售人：悠然的闲鱼</span>
+        </div>
+        <div class="row-two-left">
+          <img src="./img/cloth/re1.jpg" alt="" width="150"><br>
+          <span>9成新 春 宽松毛边长袖
+            牛仔短外套</span><br>
+          <i>¥146.00</i><br>
+          <span>出售人：悠然的闲鱼</span>
+        </div>
+        <div class="row-two-right">
+          <img src="./img/cloth/re2.jpg" alt="" width="150">
+          <span>9成新 春 宽松毛边长袖牛仔
+            短外套</span><br>
+          <i>¥146.00</i><br>
+          <span>出售人：悠然的闲鱼</span>
+        </div>
+      </div>
+    </div>
+  
+    <div data-role="footer">
+      <div data-role="navbar">
+        <ul>
+        <li><a href="#pageone" data-icon="home">首页</a></li>
+        <li><a href="#anylink" data-icon="comment">发布</a></li>
+        <li><a href="#anylink" data-icon="grid">分类</a></li>
+        <li><a href="#anylink" data-icon="shop">购物车</a></li>
+        <li><a href="#pagefive" data-icon="user">我的</a></li>
+        </ul>
+        </div>
+    </div>
+  </div> 
+
+  <!-- pagefive -->
+  <div data-role="page" id="pagefive">
+    <div data-role="header" class="header">
+      <img src="./img/pikachu.jpg" alt="" width="64">
+      <span>Cassic</span>
+    </div>
+  
+    <div data-role="content" class="content">
+      <div class="mypageList">
+        <div class="mypageItem">
+          <img src="./img/mypage/me-01.png" alt="" width="64">
+          <p>待付款</p>
+        </div>
+        <div class="mypageItem"><img src="./img/mypage/me-02.png" alt="" width="64">
+        <p>待收货</p></div>
+        <div class="mypageItem"><img src="./img/mypage/me-03.png" alt="" width="64">
+          <p>我的订单</p>
+        </div>
+      </div>
+      <ul data-role="listview">
+        <li><a href="#"><img src="./img/mypage/me-05.png" class="ui-li-icon">我的收藏</a></li>
+        <li><a href="#"><img src="./img/mypage/me-04.png" class="ui-li-icon">我的评价</a></li>
+        <li><a href="#"><img src="./img/mypage/me-06.png" class="ui-li-icon">地址管理</a></li>
+        <li><a href="#"><img src="./img/mypage/me-08.png" class="ui-li-icon">退出账号</a></li>
+      </ul>
+    </div>
+  
+    <div data-role="footer">
+      <div data-role="navbar">
+        <ul>
+        <li><a href="#pageone" data-icon="home">首页</a></li>
+        <li><a href="#anylink" data-icon="comment">发布</a></li>
+        <li><a href="#anylink" data-icon="grid">分类</a></li>
+        <li><a href="#anylink" data-icon="shop">购物车</a></li>
+        <li><a href="#pagefive" data-icon="user">我的</a></li>
+        </ul>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>
